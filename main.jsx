@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { createRoot } from "react-dom/client";
 import {
   Menu, X, ArrowRight, Music2, Sparkles, GraduationCap, Users,
@@ -87,39 +87,67 @@ const PROGRAMS = [
 const FACULTY = {
   academic: [
     {
+      id: "nagendra-shastry",
+      name: "Vidwan Dr. Srikantham Nagendra Shastry",
+      designation: "Chief Academic Mentor & Revered Guru",
+      department: "Karnataka Sangita",
+      image: "/images/dr-nagendra-shastry.jpg",
+      phone: null,
+      shortBio: "Torchbearer of the 40-generation Chintalapalli music lineage and Mysore Sadashiva Rao tradition. Acclaimed vocalist and musicologist guiding BMSSA's classical musicology and performance curriculum.",
+      fullBio: "Vidwan Dr. Srikantham Nagendra Shastry is an acclaimed Carnatic classical vocalist, musicologist, and torchbearer of the 40-generation Chintalapalli music lineage and Mysore Sadashiva Rao tradition. Discipled under Mahamahopadhyaya Dr. R. Sathyanarayana, he is celebrated for his monumental contributions in editing rare compositions of the Mysore Royal Court and Mysore Sadashiva Rao. Having served in distinguished academic leadership capacities including the Academic Committee for Kalakshetra Foundation and Deputy Registrar of Maharani Cluster University, he serves as Chief Academic Mentor guiding the curriculum, Raga-Tana-Pallavi exegesis, and musicological treatises at BMSSA.",
+      highlights: [
+        "Torchbearer, 40-gen Chintalapalli Lineage",
+        "Eminent Musicologist & Vocal Maestro",
+        "Disciple of Dr. R. Sathyanarayana",
+        "Senior Academic Mentor (Music)",
+        "Former Member, Kalakshetra Academic Committee"
+      ]
+    },
+    {
+      id: "ambika-shastry",
       name: "Dr. Ambika Shastry",
       designation: "Head of the Department of Karnataka Sangita",
       department: "Karnataka Sangita",
+      image: "/images/dr-ambika-shastry.jpg",
       phone: "+91 99805 13526",
-      bio: "She is the foremost disciple of famous and eminent guru of Karnataka music, Dr. Srikantham Nagendra Shastry. She is well-known for her absolute dedication, as a very fine performer, an astute teacher of Karnataka Music, a very able administrator and a cultural curator. She has served eminently as Assistant Professor for Research institutes like Rasashri, Maharani Cluster University and many other prestigious institutions. She has given innumerable and important concerts based on unique compositions of Karnataka composers. She is an expert Raga-Tana-Pallavi performer.",
+      shortBio: "Foremost disciple of Dr. Srikantham Nagendra Shastry and expert Raga-Tana-Pallavi performer. Former Assistant Professor at Maharani Cluster University, heading BMSSA's vocal and academic curriculum.",
+      fullBio: "Dr. Ambika Shastry is the foremost disciple of famous and eminent guru of Karnataka music, Dr. Srikantham Nagendra Shastry. She is well-known for her absolute dedication, as a very fine performer, an astute teacher of Karnataka Music, a very able administrator and a cultural curator. She has served eminently as Assistant Professor for Research institutes like Rasashri, Maharani Cluster University and many other prestigious institutions. She has given innumerable and important concerts based on unique compositions of Karnataka composers. She is an expert Raga-Tana-Pallavi performer, presently heading the Department of Karnataka Sangita at BMSSA.",
       highlights: [
         "Foremost disciple of Dr. Srikantham Nagendra Shastry",
         "Expert Raga-Tana-Pallavi performer",
         "Ex-Assistant Professor, Maharani Cluster University",
-        "Cultural curator & researcher"
+        "Cultural curator & researcher",
+        "Specialist in Rare Karnataka Vaggeyakara Compositions"
       ]
     },
     {
+      id: "ranjana-nagaraj",
       name: "Guru Vidushi Ranjana Nagaraj",
       designation: "Head of the Department Bharatanatyam",
       department: "Bharatanatyam",
+      image: "/images/bharatanatyam.jpg",
       phone: "+91 99019 27272",
-      bio: "Guru Vidushi Ranjana Nagaraj is a multi-faceted personality, deeply devoted to promoting India's dance tradition. Ranjana excels in dance education, choreography and its performance. She is a post-graduate degree holder from Jain University and is now pursuing her PhD. As the founder and director of her institution \"Nrtta Kashini\", she provides top-notch dance education. Ranjana is also a painting artist and has obtained a BVM degree from the Karnataka Chitrakala Parishath Educational Institution. Having trained in dance for 20 years under Karnataka Rajyotsava Awardee Guru Smt. Jyothi Pattabhiram, Ranjana has received further training in the Marga and Karanas of Bharatamuni's Natyasastra from Vidushi Namita and Vidushi Deeksha, who are disciples of Guru Smt. Sundari Santhanam.",
+      shortBio: "Founder-Director of 'Nrtta Kashini' with 20+ years of training under Guru Smt. Jyothi Pattabhiram. A PhD scholar specializing in the Marga and Karanas of Bharatamuni's Natyashastra.",
+      fullBio: "Guru Vidushi Ranjana Nagaraj is a multi-faceted personality, deeply devoted to promoting India's dance tradition. Ranjana excels in dance education, choreography and its performance. She is a post-graduate degree holder from Jain University and is now pursuing her PhD. As the founder and director of her institution 'Nrtta Kashini', she provides top-notch dance education. Ranjana is also a painting artist and has obtained a BVM degree from the Karnataka Chitrakala Parishath Educational Institution. Having trained in dance for 20 years under Karnataka Rajyotsava Awardee Guru Smt. Jyothi Pattabhiram, Ranjana has received further training in the Marga and Karanas of Bharatamuni's Natyasastra from Vidushi Namita and Vidushi Deeksha, disciples of Guru Smt. Sundari Santhanam.",
       highlights: [
         "Founder & Director, 'Nrtta Kashini'",
         "20 Years training under Guru Smt. Jyothi Pattabhiram",
         "Scholar of Marga & Karanas of Bharatamuni's Natyasastra",
-        "PhD Scholar & BVM Graduate from Chitrakala Parishath"
+        "PhD Scholar & BVM Graduate from Chitrakala Parishath",
+        "Choreographer & Performing Artist"
       ]
     }
   ],
   management: [
     {
+      id: "anil-katti",
       name: "Sri Anil Kumar Katti",
       designation: "Founder Trustee, BMSSA",
       department: "Board of Trustees & Chairman",
+      image: "/images/temple-heritage-motif.jpg",
       phone: null,
-      bio: "Sri Anil Kumar Katti is a unique personality of many achievements: he has built huge temples, is an able businessman, runs many educational institutions and is a generous philanthropist. He is presently serving as the Chairman of Bharateeya Matanga Samajik Samskrik Academy which he established successfully and has served our society for more than 3 decades. He is deeply committed to the upliftment of education and moral values and works diligently without compromising on anything. He was deeply spiritually influenced by Mahamahopadhyaya Dr. R. Sathyanarayana and since then has taken the upliftment of the Matanga community, Matangamuni publications and social work as his life's sole aim and purpose.",
+      shortBio: "Chairman and Founder Trustee serving society for over three decades through educational leadership, cultural preservation, and philanthropic patronage.",
+      fullBio: "Sri Anil Kumar Katti is a unique personality of many achievements: he has built huge temples, is an able businessman, runs many educational institutions and is a generous philanthropist. He is presently serving as the Chairman of Bharateeya Matanga Samajik Samskrik Academy which he established successfully and has served our society for more than 3 decades. He is deeply committed to the upliftment of education and moral values and works diligently without compromising on anything. He was deeply spiritually influenced by Mahamahopadhyaya Dr. R. Sathyanarayana and since then has taken the upliftment of the Matanga community, Matangamuni publications and social work as his life's sole aim and purpose.",
       highlights: [
         "Chairman & Founder Trustee, BMSSA",
         "Over 3 Decades of Social & Cultural Service",
@@ -128,11 +156,14 @@ const FACULTY = {
       ]
     },
     {
+      id: "santosh-prasad",
       name: "Sri Santosh Prasad",
       designation: "Executive Admin",
       department: "Administration & Student Welfare",
+      image: "/images/arts-workshop.jpg",
       phone: "+91 98862 52375",
-      bio: "He is a very able, hard working and successful administrator and a Bharatanatyam artist. He is an interior designer by profession and an artist by heart. He was awarded the prestigious Junior Fellowship by Ministry of Culture, Government of India. He is serving the institution as executive admin to take care of student welfare, admissions, scheduling of academic sessions, seminars and examination work.",
+      shortBio: "Ministry of Culture Junior Fellowship awardee, accomplished Bharatanatyam artist, and administrator managing student welfare, admissions, and university liaison.",
+      fullBio: "Sri Santosh Prasad is a very able, hard working and successful administrator and a Bharatanatyam artist. He is an interior designer by profession and an artist by heart. He was awarded the prestigious Junior Fellowship by Ministry of Culture, Government of India. He is serving the institution as executive admin to take care of student welfare, admissions, scheduling of academic sessions, seminars and examination work.",
       highlights: [
         "Executive Admin — Admissions & Student Welfare",
         "Junior Fellowship Awardee, Ministry of Culture (Govt. of India)",
@@ -143,29 +174,175 @@ const FACULTY = {
   ]
 };
 
+/* ==========================================================================
+   AUTHENTIC INDIAN POSTAGE STAMP COMPONENT
+   ========================================================================== */
+function PostageStamp({ id, name, department, image }) {
+  const w = 240;
+  const h = 300;
+  const r = 5.5;
+  const stepX = 16;
+  const stepY = 16;
+
+  const circles = [];
+  for (let x = 8; x <= w - 8; x += stepX) {
+    circles.push({ cx: x, cy: 0 });
+    circles.push({ cx: x, cy: h });
+  }
+  for (let y = 10; y <= h - 10; y += stepY) {
+    circles.push({ cx: 0, cy: y });
+    circles.push({ cx: w, cy: y });
+  }
+
+  const cleanId = id || (name ? name.replace(/[^a-zA-Z0-9]/g, "") : "stamp");
+  const maskId = `stamp-mask-${cleanId}`;
+
+  return (
+    <div className="stamp-frame-outer">
+      <svg
+        viewBox={`0 0 ${w} ${h}`}
+        className="stamp-svg"
+        preserveAspectRatio="xMidYMid meet"
+        role="img"
+        aria-label={`Commemorative stamp for ${name}`}
+      >
+        <defs>
+          <mask id={maskId}>
+            <rect x="0" y="0" width={w} height={h} fill="#ffffff" />
+            {circles.map((c, i) => (
+              <circle key={i} cx={c.cx} cy={c.cy} r={r} fill="#000000" />
+            ))}
+          </mask>
+        </defs>
+
+        <g mask={`url(#${maskId})`}>
+          {/* Ivory paper base */}
+          <rect x="0" y="0" width={w} height={h} fill="#FAF5E8" />
+
+          {/* Subtle dashed inner margin */}
+          <rect
+            x="9"
+            y="9"
+            width={w - 18}
+            height={h - 18}
+            fill="none"
+            stroke="#D6C4A5"
+            strokeWidth="0.8"
+            strokeDasharray="3 3"
+          />
+
+          {/* Inner Golden Picture Frame */}
+          <rect
+            x="14"
+            y="14"
+            width={w - 28}
+            height={h - 28}
+            fill="#FFFFFF"
+            stroke="#C8A45D"
+            strokeWidth="1.2"
+          />
+
+          {/* Stamp Top Commemorative Header */}
+          <text
+            x={w / 2}
+            y="26"
+            textAnchor="middle"
+            fontFamily="'Cormorant Garamond', Georgia, serif"
+            fontSize="9"
+            fontWeight="700"
+            letterSpacing="2"
+            fill="#65001F"
+          >
+            ✦ BMSSA • ACADEMY ✦
+          </text>
+
+          {/* Framed Faculty Portrait Photo */}
+          <image
+            href={image || "/images/temple-heritage-motif.jpg"}
+            xlinkHref={image || "/images/temple-heritage-motif.jpg"}
+            x="18"
+            y="32"
+            width={w - 36}
+            height={h - 68}
+            preserveAspectRatio="xMidYMid slice"
+          />
+
+          {/* Fine Gold Mat around Photo */}
+          <rect
+            x="18"
+            y="32"
+            width={w - 36}
+            height={h - 68}
+            fill="none"
+            stroke="#C8A45D"
+            strokeWidth="1"
+            opacity="0.85"
+          />
+
+          {/* Commemorative Postmark Cancellation Seal */}
+          <g transform={`translate(${w - 62}, 38)`} opacity="0.30">
+            <circle cx="20" cy="20" r="18" fill="none" stroke="#2B211B" strokeWidth="1" strokeDasharray="3 2" />
+            <path d="M-15,10 Q5,4 25,10 T65,10" fill="none" stroke="#2B211B" strokeWidth="1" />
+            <path d="M-15,16 Q5,10 25,16 T65,16" fill="none" stroke="#2B211B" strokeWidth="1" />
+            <path d="M-15,22 Q5,16 25,22 T65,22" fill="none" stroke="#2B211B" strokeWidth="1" />
+            <text x="20" y="23" textAnchor="middle" fontSize="5.5" fontFamily="'Cormorant Garamond', Georgia, serif" fontWeight="700" fill="#2B211B">
+              BMSSA
+            </text>
+          </g>
+
+          {/* Stamp Bottom Inscription */}
+          <text
+            x="22"
+            y={h - 18}
+            fontFamily="'Cormorant Garamond', Georgia, serif"
+            fontSize="10"
+            fontWeight="700"
+            letterSpacing="1"
+            fill="#65001F"
+          >
+            {department?.includes("Music") ? "SANGITA" : department?.includes("Dance") ? "NATYA" : "SEVA"}
+          </text>
+
+          <text
+            x={w - 22}
+            y={h - 18}
+            textAnchor="end"
+            fontFamily="'Inter', sans-serif"
+            fontSize="9"
+            fontWeight="700"
+            letterSpacing="1"
+            fill="#C8A45D"
+          >
+            ₹ 2026
+          </text>
+        </g>
+      </svg>
+    </div>
+  );
+}
+
 const LEGACY = [
   {
     name: "Mahamahopadhyaya Dr. R. Sathyanarayana",
     role: "Paramaguru & Guiding Inspiration",
     theme: "On the Path of Paramaguru",
-    quote: "Indian Art is a powerful medium for expressing human emotions, and within it, music and dance are woven into the very fabric of everyone's life. The great Indian cultural arts of Karnataka music and Bharatanatyam share an inseparable bond. They offer more than just entertainment; they possess the power to be stepping stones in a student's life's successful journey and spiritual journey too. These art forms are playing a very significant role in mainstream education in our country and its royal march towards superior status in our world.",
-    bio: "Padma Shri awardee, Mahamahopadhyaya Dr. R. Sathyanarayana was an extraordinary scholar of Indian arts, musicology, dance treatises, and Indology. His visionary philosophy on the organic unity of Karnataka music and Bharatanatyam forms the foundational intellectual bedrock of BMSSA.",
+    image: null,
+    quote: "Indian Art is a powerful medium for expressing human emotions, and music and dance are woven into the very fabric of life.",
+    bio: "Padma Shri awardee and monumental musicologist whose visionary synthesis of Karnataka Sangita and Bharatanatya treatises forms the intellectual bedrock of BMSSA.",
     accolades: ["Padma Shri Awardee", "Mahamahopadhyaya", "Eminent Musicologist", "Guiding Paramaguru"]
   },
   {
     name: "Vidwan Dr. R. S. Nandakumar",
     role: "Musical & Scholarly Legacy",
     theme: "Heritage of Mysuru Vaggeyakaras",
-    quote: "Music is both a sacred lineage of composers and an empirical science of sound that connects generations across centuries.",
-    bio: "Vidwan Dr. R. S. Nandakumar is renowned as both a musician and a scholar in the world of Karnataka music, as well as an exceptional organizer. Belonging to a prestigious musical family, he is the descendent from a lineage of composers (vaggeyakaras). Dr. R. S. Nandakumar is the son of the PadmaShri awardee, Mahamahopadhyaya Dr. R. Sathyanarayana. He has continually excelled in music, achieving mastery in both theoretical and practical aspects. He is a repository of rare collections of works from the four Mysuru Maharajas and many Mysuru vaggeyakaras. A scholar who has authored several significant works, Dr. Nandakumar has translated from Sanskrit and English to Kannada languages, upholding and promoting the grandeur of Karnataka's rich cultural heritage globally.",
+    image: "/images/dr-nandakumar.jpg",
+    quote: "Music is both a sacred lineage of composers and an empirical science of sound connecting generations.",
+    bio: "Eminent musician, scholar, and son of Padma Shri Dr. R. Sathyanarayana. Master of Mysuru vaggeyakara compositions and shastric treatises, upholding Karnataka's heritage globally.",
     accolades: [
       "Karnataka Kalashree",
-      "Asthana Vidwan, Kanchi Jagadguru Peetham",
-      "Mantralaya Sushameendra Award",
+      "Asthana Vidwan, Kanchi Peetham",
       "Shastra Kaustubha",
-      "Aryabhata Award",
-      "Sangeetha Kalavaridhi",
-      "Vidya Vageeshwari Pandita"
+      "Sangeetha Kalavaridhi"
     ]
   }
 ];
@@ -321,6 +498,15 @@ function App() {
   const [selectedProgramForApply, setSelectedProgramForApply] = useState("Master of Performing Arts — Karnataka Sangita");
   const [campaignMode, setCampaignMode] = useState(false);
   const [showDeptContacts, setShowDeptContacts] = useState(false);
+  const [selectedFaculty, setSelectedFaculty] = useState(null);
+
+  // Allow URL parameter (?ad=true or #ad) for direct digital ad traffic
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("ad") === "true" || params.get("campaign") === "true" || window.location.hash === "#ad") {
+      setCampaignMode(true);
+    }
+  }, []);
 
   // Form State
   const [formData, setFormData] = useState({
@@ -393,7 +579,6 @@ function App() {
             <div className="brand-text">
               <div className="brand-title">BMSSA</div>
               <span className="brand-sub">Bharateeya Matanga Samajik Samskrik Academy</span>
-              <span className="brand-affiliation">Kannada University, Hampi Recognised</span>
             </div>
           </button>
 
@@ -410,13 +595,6 @@ function App() {
           </nav>
 
           <div className="header-actions">
-            <button
-              className="campaign-mode-toggle"
-              onClick={() => setCampaignMode(true)}
-              title="Ad campaign landing page view for Instagram/Facebook ads traffic"
-            >
-              <Sparkles size={14} /> Ad Landing View
-            </button>
             <button
               className="btn btn-primary"
               onClick={() => handleApplyClick("Master of Performing Arts — Karnataka Sangita")}
@@ -623,7 +801,6 @@ function App() {
                   <div className="program-body">
                     <div className="program-degree">{prog.degree}</div>
                     <h3 className="program-title">{prog.discipline}</h3>
-                    <p className="program-desc">{prog.overview}</p>
 
                     <div className="program-meta-list">
                       <div className="meta-item">
@@ -769,8 +946,17 @@ function App() {
               {LEGACY.map((pers) => (
                 <div key={pers.name} className="legacy-card">
                   <div className="legacy-card-header">
-                    <span className="legacy-role-kicker">{pers.role}</span>
-                    <h3 className="legacy-name">{pers.name}</h3>
+                    <div className="legacy-profile-top">
+                      {pers.image ? (
+                        <img src={pers.image} alt={pers.name} className="legacy-avatar-img" />
+                      ) : (
+                        <div className="legacy-avatar-crest">ॐ</div>
+                      )}
+                      <div className="legacy-meta">
+                        <span className="legacy-role-kicker">{pers.role}</span>
+                        <h3 className="legacy-name">{pers.name}</h3>
+                      </div>
+                    </div>
                   </div>
 
                   <blockquote className="legacy-quote">
@@ -817,34 +1003,40 @@ function App() {
               <span>Academic Leadership</span>
             </div>
 
-            <div className="faculty-grid">
-              {FACULTY.academic.map((f) => (
-                <div key={f.name} className="faculty-card">
-                  <div className="faculty-card-top">
-                    <div className="faculty-avatar-crest">
-                      {f.department.includes("Music") ? "🎵" : "🩰"}
-                    </div>
-                    <div className="faculty-meta">
-                      <h3>{f.name}</h3>
-                      <span className="faculty-designation">{f.designation}</span>
-                    </div>
+            <div className="faculty-stamp-grid">
+              {FACULTY.academic.map((f, idx) => (
+                <div
+                  key={f.name}
+                  className="faculty-stamp-card"
+                  onClick={() => setSelectedFaculty(f)}
+                  role="button"
+                  tabIndex={0}
+                  aria-label={`View profile for ${f.name}`}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      setSelectedFaculty(f);
+                    }
+                  }}
+                >
+                  <div className="stamp-card-top-tag">
+                    <span>✦ {f.department} ✦</span>
                   </div>
 
-                  <p className="faculty-bio">{f.bio}</p>
+                  <PostageStamp
+                    id={`acad-${idx}`}
+                    name={f.name}
+                    department={f.department}
+                    image={f.image}
+                  />
 
-                  <div className="faculty-tags">
-                    {f.highlights.map((h, i) => (
-                      <span key={i} className="faculty-tag">
-                        ✓ {h}
-                      </span>
-                    ))}
+                  <div className="stamp-card-info">
+                    <h3 className="stamp-faculty-name">{f.name}</h3>
+                    <span className="stamp-faculty-designation">{f.designation}</span>
+                    <div className="stamp-click-hint">
+                      <span>View Profile & Details</span> <ArrowRight size={13} />
+                    </div>
                   </div>
-
-                  {f.phone && (
-                    <a href={`tel:${f.phone.replace(/[^0-9+]/g, '')}`} className="faculty-contact-link">
-                      <Phone size={14} /> Direct Dept Contact: {f.phone}
-                    </a>
-                  )}
                 </div>
               ))}
             </div>
@@ -854,34 +1046,40 @@ function App() {
               <span>Management & Administration</span>
             </div>
 
-            <div className="faculty-grid">
-              {FACULTY.management.map((m) => (
-                <div key={m.name} className="faculty-card">
-                  <div className="faculty-card-top">
-                    <div className="faculty-avatar-crest">
-                      {m.name.includes("Katti") ? "🏛️" : "📋"}
-                    </div>
-                    <div className="faculty-meta">
-                      <h3>{m.name}</h3>
-                      <span className="faculty-designation">{m.designation}</span>
-                    </div>
+            <div className="faculty-stamp-grid">
+              {FACULTY.management.map((m, idx) => (
+                <div
+                  key={m.name}
+                  className="faculty-stamp-card"
+                  onClick={() => setSelectedFaculty(m)}
+                  role="button"
+                  tabIndex={0}
+                  aria-label={`View profile for ${m.name}`}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      setSelectedFaculty(m);
+                    }
+                  }}
+                >
+                  <div className="stamp-card-top-tag">
+                    <span>✦ {m.department} ✦</span>
                   </div>
 
-                  <p className="faculty-bio">{m.bio}</p>
+                  <PostageStamp
+                    id={`mgmt-${idx}`}
+                    name={m.name}
+                    department={m.department}
+                    image={m.image}
+                  />
 
-                  <div className="faculty-tags">
-                    {m.highlights.map((h, i) => (
-                      <span key={i} className="faculty-tag">
-                        ✓ {h}
-                      </span>
-                    ))}
+                  <div className="stamp-card-info">
+                    <h3 className="stamp-faculty-name">{m.name}</h3>
+                    <span className="stamp-faculty-designation">{m.designation}</span>
+                    <div className="stamp-click-hint">
+                      <span>View Profile & Details</span> <ArrowRight size={13} />
+                    </div>
                   </div>
-
-                  {m.phone && (
-                    <a href={`tel:${m.phone.replace(/[^0-9+]/g, '')}`} className="faculty-contact-link">
-                      <Phone size={14} /> Direct Office Line: {m.phone}
-                    </a>
-                  )}
                 </div>
               ))}
             </div>
@@ -1497,17 +1695,10 @@ function App() {
               </a>
               <a
                 href={`mailto:${ACADEMY_INFO.email}`}
-                style={{ display: "block", color: "#E0D2D5", fontSize: "0.85rem", marginBottom: "18px" }}
+                style={{ display: "block", color: "#E0D2D5", fontSize: "0.85rem" }}
               >
                 {ACADEMY_INFO.email}
               </a>
-              <button
-                className="btn btn-outline-gold"
-                style={{ width: "100%", padding: "8px 14px", fontSize: "0.8rem" }}
-                onClick={() => setCampaignMode(true)}
-              >
-                Launch Ad Landing View
-              </button>
             </div>
           </div>
 
@@ -1902,6 +2093,78 @@ function App() {
               <h4 style={{ fontFamily: "var(--font-serif)", fontSize: "1.35rem", color: "var(--maroon-darkest)", marginTop: "4px" }}>
                 {lightboxItem.title}
               </h4>
+            </div>
+          </div>
+        </div>
+      )}
+      {/* ==================================================================
+          21. FACULTY PROFILE DETAIL MODAL (Stamp Click)
+          ================================================================== */}
+      {selectedFaculty && (
+        <div className="modal-backdrop" onClick={() => setSelectedFaculty(null)}>
+          <div
+            className="modal-content faculty-detail-modal"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              className="modal-close-btn"
+              onClick={() => setSelectedFaculty(null)}
+              aria-label="Close Profile"
+            >
+              <X size={20} />
+            </button>
+
+            <div className="faculty-detail-grid">
+              {/* Left Column: Authentic Commemorative Stamp */}
+              <div className="faculty-detail-stamp-wrap">
+                <PostageStamp
+                  id="modal-stamp"
+                  name={selectedFaculty.name}
+                  department={selectedFaculty.department}
+                  image={selectedFaculty.image}
+                />
+                <div className="stamp-modal-caption">
+                  <span>Commemorative Academic Stamp</span>
+                  <small>BMSSA • Estd. 2017</small>
+                </div>
+              </div>
+
+              {/* Right Column: Full Details */}
+              <div className="faculty-detail-content">
+                <span className="faculty-modal-dept-badge">
+                  ✦ {selectedFaculty.department}
+                </span>
+
+                <h3 className="faculty-modal-title">
+                  {selectedFaculty.name}
+                </h3>
+                <div className="faculty-modal-designation">
+                  {selectedFaculty.designation}
+                </div>
+
+                <div className="faculty-modal-section-title">
+                  About & Artistic Lineage
+                </div>
+                <p className="faculty-modal-bio">
+                  {selectedFaculty.fullBio || selectedFaculty.bio}
+                </p>
+
+                {selectedFaculty.highlights && selectedFaculty.highlights.length > 0 && (
+                  <>
+                    <div className="faculty-modal-section-title" style={{ marginTop: "18px" }}>
+                      Key Accolades & Roles
+                    </div>
+                    <ul className="faculty-modal-highlights">
+                      {selectedFaculty.highlights.map((h, idx) => (
+                        <li key={idx}>
+                          <CheckCircle2 size={16} />
+                          <span>{h}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </>
+                )}
+              </div>
             </div>
           </div>
         </div>
