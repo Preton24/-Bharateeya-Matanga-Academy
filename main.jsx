@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { createRoot } from "react-dom/client";
 import {
   Menu, X, ArrowRight, Music2, Sparkles, GraduationCap, Users,
-  CalendarDays, Image as ImageIcon, Phone, Mail, MapPin, ChevronDown,
+  CalendarDays, Image as ImageIcon, Phone, Mail, MapPin, ChevronDown, ChevronUp,
   MessageCircle, BookOpen, Award, Globe2, CheckCircle2, FileText,
   Clock, ShieldCheck, ChevronRight, ExternalLink, HelpCircle,
   Building2, Landmark, Check, Send, AlertCircle
@@ -37,9 +37,10 @@ const PROGRAMS = [
     title: "Master of Performing Arts — Karnataka Sangita",
     shortTitle: "MPA Karnataka Sangita",
     degree: "Master of Performing Arts (MPA)",
-    discipline: "Karnataka Sangita (Music)",
+    discipline: "Karnataka Sangita (Classical Music)",
     tag: "Classical Music",
-    image: "/images/carnatic-music.jpg",
+    image: "/images/group_singing.jpg",
+    imagePosition: "center 38%",
     duration: "2 Years",
     semesters: "4 Semesters",
     admissionBatch: "2026-27",
@@ -49,12 +50,13 @@ const PROGRAMS = [
     exemption: "Applicants who have passed the Senior Exam in Karnataka Sangita are exempt from the entrance exam.",
     hod: "Dr. Ambika Shastry",
     hodTitle: "Head of the Department of Karnataka Sangita",
-    overview: "Academic and performance-oriented study of Karnataka music with guidance from experienced faculty. Deep immersion in rare compositions, Raga-Tana-Pallavi, musicological treatises, and vocal concert presentation.",
+    overview: "Academic and performance-oriented study of Karnataka music with guidance from experienced faculty. Deep immersion in rare compositions, Raga-Tana-Pallavi, musicological treatises, vocal concert presentation and a research-based dissertation.",
     curriculum: [
       "Advanced Ragas & Compositions of Karnataka Vaggeyakaras",
       "Raga-Tana-Pallavi (RTP) Performance & Manodharma Sangita",
+      "Studies in Karnataka Sangita : History, Composers of Karnataka Music, Lakshya and Lakshanas of Tala Vadyas, Musical Terminologies, Music & Science, Principles of Musicology, Karnataka Music and complementary Shastras, Western Music a comparative understanding",
       "Indian Musicological Treatises & Natyashastra Musical Systems",
-      "Concert Presentation, Audio Preservation & Research Methodologies"
+      "Concert Presentation & Research Methodologies with Dissertation"
     ]
   },
   {
@@ -64,7 +66,10 @@ const PROGRAMS = [
     degree: "Master of Performing Arts (MPA)",
     discipline: "Bharatanatya (Classical Dance)",
     tag: "Classical Dance",
-    image: "/images/bharatanatyam.jpg",
+    image: "/images/solo-pic-3.png",
+    imagePosition: "center center",
+    modalImage: "/images/master_of_performing_arts.jpg",
+    modalImagePosition: "center 22%",
     duration: "2 Years",
     semesters: "4 Semesters",
     admissionBatch: "2026-27",
@@ -74,12 +79,19 @@ const PROGRAMS = [
     exemption: "Applicants who have passed the Senior Exam in Bharatanatya are exempt from the entrance exam.",
     hod: "Guru Vidushi Ranjana Nagaraj",
     hodTitle: "Head of the Department Bharatanatyam",
-    overview: "Structured academic and practical learning for students aspiring to pursue Bharatanatya. Comprehensive training in Nritta, Abhinaya, Natyasastra Marga, Karanas, and choreographic curation.",
+    overview: "Structured academic and practical learning for students aspiring to pursue Bharatanatya. Comprehensive training in Nritta, Abhinaya, Natyasastra Marga, Karanas, choreographic curation and exposure to folk dances.",
     curriculum: [
-      "Margam Repertoire, Complex Talas & Jatis",
-      "Marga and Karanas of Bharatamuni's Natyasastra",
-      "Advanced Abhinaya, Sanchari Bhavas & Rasa Theory",
-      "Stage Choreography, Nattuvangam & Pedagogical Studies"
+      "Global Dance History - Exploring the evolution of dance through different cultures and historical periods",
+      "Dance literature – Analysing various texts and scholarly works on dance",
+      "Allied art forms – Gaining insights into related art forms to enhance dance understanding",
+      "Natya Shastra – Theory & Practicum of the text",
+      "Folk dance – Understanding the significance and movements of various folk dances",
+      "Expert workshops – Participating in workshops led by subject matter experts",
+      "Choreography skills – Developing and refining choreography techniques",
+      "Group productions – Collaborating on group dance thematic productions",
+      "Solo concerts – Preparing for and performing solo dance live concerts",
+      "Research methodology – Learning research methods and preparing a thesis",
+      "Field trips – Engaging in a field study to experience dance in different artistic contexts"
     ]
   }
 ];
@@ -125,7 +137,7 @@ const FACULTY = {
       name: "Guru Vidushi Ranjana Nagaraj",
       designation: "Head of the Department Bharatanatyam",
       department: "Bharatanatyam",
-      image: "/images/bharatanatyam.jpg",
+      image: "/images/ranjana-nagaraj.jpg",
       phone: "+91 99019 27272",
       shortBio: "Founder-Director of 'Nrtta Kashini' with 20+ years of training under Guru Smt. Jyothi Pattabhiram. A PhD scholar specializing in the Marga and Karanas of Bharatamuni's Natyashastra.",
       fullBio: "Guru Vidushi Ranjana Nagaraj is a multi-faceted personality, deeply devoted to promoting India's dance tradition. Ranjana excels in dance education, choreography and its performance. She is a post-graduate degree holder from Jain University and is now pursuing her PhD. As the founder and director of her institution 'Nrtta Kashini', she provides top-notch dance education. Ranjana is also a painting artist and has obtained a BVM degree from the Karnataka Chitrakala Parishath Educational Institution. Having trained in dance for 20 years under Karnataka Rajyotsava Awardee Guru Smt. Jyothi Pattabhiram, Ranjana has received further training in the Marga and Karanas of Bharatamuni's Natyasastra from Vidushi Namita and Vidushi Deeksha, disciples of Guru Smt. Sundari Santhanam.",
@@ -144,7 +156,7 @@ const FACULTY = {
       name: "Sri Anil Kumar Katti",
       designation: "Founder Trustee, BMSSA",
       department: "Board of Trustees & Chairman",
-      image: "/images/temple-heritage-motif.jpg",
+      image: "/images/anil-kumar-katti.jpg",
       phone: null,
       shortBio: "Chairman and Founder Trustee serving society for over three decades through educational leadership, cultural preservation, and philanthropic patronage.",
       fullBio: "Sri Anil Kumar Katti is a unique personality of many achievements: he has built huge temples, is an able businessman, runs many educational institutions and is a generous philanthropist. He is presently serving as the Chairman of Bharateeya Matanga Samajik Samskrik Academy which he established successfully and has served our society for more than 3 decades. He is deeply committed to the upliftment of education and moral values and works diligently without compromising on anything. He was deeply spiritually influenced by Mahamahopadhyaya Dr. R. Sathyanarayana and since then has taken the upliftment of the Matanga community, Matangamuni publications and social work as his life's sole aim and purpose.",
@@ -326,7 +338,9 @@ const LEGACY = [
     name: "Mahamahopadhyaya Dr. R. Sathyanarayana",
     role: "Paramaguru & Guiding Inspiration",
     theme: "On the Path of Paramaguru",
-    image: null,
+    image: "/images/dr-satyanarayana-3.jpg",
+    fallbackImage: "/images/Dr. satyanarayana 3.png",
+    imagePosition: "center 25%",
     quote: "Indian Art is a powerful medium for expressing human emotions, and music and dance are woven into the very fabric of life.",
     bio: "Padma Shri awardee and monumental musicologist whose visionary synthesis of Karnataka Sangita and Bharatanatya treatises forms the intellectual bedrock of BMSSA.",
     accolades: ["Padma Shri Awardee", "Mahamahopadhyaya", "Eminent Musicologist", "Guiding Paramaguru"]
@@ -335,7 +349,13 @@ const LEGACY = [
     name: "Vidwan Dr. R. S. Nandakumar",
     role: "Musical & Scholarly Legacy",
     theme: "Heritage of Mysuru Vaggeyakaras",
+    designations: [
+      "Academic Director of BMSS Academy",
+      "HOD - Department of Music"
+    ],
     image: "/images/dr-nandakumar.jpg",
+    fallbackImage: "/images/Dr. NandaKumar.JPG",
+    imagePosition: "center 18%",
     quote: "Music is both a sacred lineage of composers and an empirical science of sound connecting generations.",
     bio: "Eminent musician, scholar, and son of Padma Shri Dr. R. Sathyanarayana. Master of Mysuru vaggeyakara compositions and shastric treatises, upholding Karnataka's heritage globally.",
     accolades: [
@@ -408,52 +428,137 @@ const ACTIVITIES = [
 const GALLERY_ITEMS = [
   {
     id: 1,
-    title: "Karnataka Sangita Recital with Saraswati Veena & Tambura",
-    category: "music",
-    tag: "Karnataka Sangita",
-    image: "/images/carnatic-music.jpg"
+    title: "Master of Performing Arts — Bharatanatyam Stage Production",
+    category: "dance",
+    tag: "Bharatanatya Production",
+    image: "/images/master_of_performing_arts.jpg"
   },
   {
     id: 2,
-    title: "Bharatanatyam Temple Mandapam Aramandi Posture",
+    title: "Bharatanatyam Recital — Classical Marga Posture",
     category: "dance",
-    tag: "Bharatanatya",
-    image: "/images/bharatanatyam.jpg"
+    tag: "Bharatanatya Solo",
+    image: "/images/solo-1.jpg",
+    fallbackImage: "/images/solo 1.jpeg"
   },
   {
     id: 3,
-    title: "Academy Heritage Campus & Student Cultural Assembly",
-    category: "campus",
-    tag: "Campus & Courtyard",
-    image: "/images/academy-campus.jpg"
+    title: "Karnataka Sangita — Classical Vocal Ensemble & Presentation",
+    category: "music",
+    tag: "Karnataka Sangita",
+    image: "/images/group_singing.jpg"
+  },
+  {
+    id: 17,
+    title: "Karnataka Sangita Vocal Group Abhyasa & Rehearsal",
+    category: "music",
+    tag: "Karnataka Sangita",
+    image: "/images/group-singing-2.jpg",
+    fallbackImage: "/images/group singing 2.jpg"
   },
   {
     id: 4,
-    title: "Classical Musicology Archive & Palm-Leaf Manuscripts",
-    category: "research",
-    tag: "Research & Legacy",
-    image: "/images/manuscripts-scholarship.jpg"
+    title: "Mahamahopadhyaya Dr. R. Sathyanarayana — Shastric Treatises & Musicology",
+    category: "heritage",
+    tag: "Scholarly Legacy",
+    image: "/images/dr-satyanarayana-2.jpg",
+    fallbackImage: "/images/Dr satyanarayana 2.JPG"
   },
   {
     id: 5,
-    title: "Nataraja Rehearsal Hall & Sacred Dance Sanctuary",
+    title: "Dr. R. S. Nandakumar with Guru Ranjana & Bharatanatyam Ensemble",
     category: "dance",
-    tag: "Dance Studio",
-    image: "/images/dance-studio.jpg"
+    tag: "Stage Ensemble",
+    image: "/images/photo-3.jpg",
+    fallbackImage: "/images/photo 3.jpg"
   },
   {
     id: 6,
-    title: "Grand Sabha Classical Concert: Vocal, Violin & Mridangam",
-    category: "events",
-    tag: "Performances",
-    image: "/images/concert-performance.jpg"
+    title: "Bharatanatyam Recital — Sculpturesque Karana Posture",
+    category: "dance",
+    tag: "Bharatanatya Solo",
+    image: "/images/solo-2.jpg",
+    fallbackImage: "/images/solo 2.jpeg"
   },
   {
     id: 7,
-    title: "Heritage Arts Workshop & Natyashastra Lecture Demonstration",
-    category: "workshops",
-    tag: "Workshops",
-    image: "/images/arts-workshop.jpg"
+    title: "Bharatanatyam Live Sabha Performance",
+    category: "dance",
+    tag: "Bharatanatya Stage",
+    image: "/images/solo-pic-3.png",
+    fallbackImage: "/images/solo pic 3.png"
+  },
+  {
+    id: 8,
+    title: "Guru Vidushi Ranjana Nagaraj — Classical Natyashastra Abhinaya & Nritta",
+    category: "dance",
+    tag: "Faculty & Artists",
+    image: "/images/ranjana-nagaraj.jpg",
+    fallbackImage: "/images/Ranjana.jpeg"
+  },
+  {
+    id: 9,
+    title: "Nrtta Kashini & Academy Dance Hall Studio Rehearsal",
+    category: "dance",
+    tag: "Rehearsal Studio",
+    image: "/images/photo-1.jpg",
+    fallbackImage: "/images/photo 1.jpeg"
+  },
+  {
+    id: 10,
+    title: "Vidwan Dr. R. S. Nandakumar — Karnataka Music Concert Presentation",
+    category: "music",
+    tag: "Karnataka Sangita",
+    image: "/images/dr-nandakumar.jpg",
+    fallbackImage: "/images/Dr. NandaKumar.JPG"
+  },
+  {
+    id: 11,
+    title: "Mahamahopadhyaya Dr. R. Sathyanarayana — Revered Paramaguru",
+    category: "heritage",
+    tag: "Paramaguru",
+    image: "/images/dr-satyanarayana-3.jpg",
+    fallbackImage: "/images/Dr. satyanarayana 3.png"
+  },
+  {
+    id: 12,
+    title: "Academy Cultural Assembly & Gurukula Gathering",
+    category: "heritage",
+    tag: "Cultural Gathering",
+    image: "/images/photo-2.jpg",
+    fallbackImage: "/images/photo 2.jpeg"
+  },
+  {
+    id: 13,
+    title: "Dr. Ambika Shastry — Vocal Recital with Sacred Tanpura",
+    category: "music",
+    tag: "Karnataka Sangita",
+    image: "/images/dr-ambika-shastry.jpg",
+    fallbackImage: "/images/Dr.Ambika Shashtry.jpeg"
+  },
+  {
+    id: 14,
+    title: "Vidwan Dr. Srikantham Nagendra Shastry — Vocal Concert & Lineage",
+    category: "music",
+    tag: "Karnataka Sangita",
+    image: "/images/dr-nagendra-shastry.jpg",
+    fallbackImage: "/images/Dr.Nagendra Shastri.jpeg"
+  },
+  {
+    id: 15,
+    title: "Dr. R. Sathyanarayana — Archival Historical Portrait",
+    category: "heritage",
+    tag: "Archival History",
+    image: "/images/dr-satyanarayana-pic.jpg",
+    fallbackImage: "/images/Dr Satyanarayana pic.jpeg"
+  },
+  {
+    id: 16,
+    title: "Sri Anil Kumar Katti — Founder Trustee & Chairman",
+    category: "heritage",
+    tag: "Academy Leadership",
+    image: "/images/anil-kumar-katti.jpg",
+    fallbackImage: "/images/Anil kumar.jpeg"
   }
 ];
 
@@ -492,6 +597,7 @@ function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeFaq, setActiveFaq] = useState(0);
   const [galleryFilter, setGalleryFilter] = useState("all");
+  const [galleryLimit, setGalleryLimit] = useState(10);
   const [lightboxItem, setLightboxItem] = useState(null);
   const [courseModal, setCourseModal] = useState(null);
   const [applyModalOpen, setApplyModalOpen] = useState(false);
@@ -543,14 +649,16 @@ function App() {
     ? GALLERY_ITEMS
     : GALLERY_ITEMS.filter((item) => item.category === galleryFilter);
 
+  const visibleGallery = filteredGallery.slice(0, galleryLimit);
+
   return (
     <div className="site-wrap">
       {/* 1. TOP NOTICE & QUICK CONTACT BAR */}
       <div className="top-notice-bar">
         <div className="container top-notice-inner">
           <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-            <span className="notice-pill">ADMISSIONS 2026-27</span>
-            <span>Master of Performing Arts in Karnataka Sangita & Bharatanatya</span>
+            <span className="notice-pill">ADMISSIONS 2026-27 OPEN</span>
+            <span>Master of Performing Arts (MPA) in Karnataka Sangita and Bharatanatya</span>
           </div>
           <div className="top-quick-contacts">
             <a href={`tel:${ACADEMY_INFO.primaryPhoneRaw}`}>
@@ -575,7 +683,17 @@ function App() {
       <header className="site-header">
         <div className="container header-inner">
           <button className="brand-link" onClick={() => scrollTo("home")} aria-label="BMSSA Home">
-            <div className="brand-emblem">ॐ</div>
+            <img
+              src="/images/logo-eng.png"
+              alt="Bharateeya Matanga Samajik Samskrik Academy"
+              className="brand-logo-img"
+              width="58"
+              height="58"
+              onError={(e) => {
+                e.currentTarget.onerror = null;
+                e.currentTarget.src = "/images/logo eng.jpeg";
+              }}
+            />
             <div className="brand-text">
               <div className="brand-title">BMSSA</div>
               <span className="brand-sub">Bharateeya Matanga Samajik Samskrik Academy</span>
@@ -699,10 +817,17 @@ function App() {
                 </div>
 
                 {/* Admission Status */}
-                <div>
+                <div className="hero-batch-wrapper">
                   <div className="hero-batch-pill">
                     <span className="pulse-dot"></span>
-                    <span>Admissions 2026-27 Open</span>
+                    <div className="hero-batch-text">
+                      <span className="hero-batch-line hero-batch-line-primary">
+                        Admissions 2026-27 OPEN for Master of Performing Arts (MPA)
+                      </span>
+                      <span className="hero-batch-line hero-batch-line-sub">
+                        in Karnataka Sangita and Bharatanatya
+                      </span>
+                    </div>
                   </div>
                 </div>
 
@@ -793,6 +918,7 @@ function App() {
                       src={prog.image}
                       alt={prog.title}
                       className="program-img"
+                      style={prog.imagePosition ? { objectPosition: prog.imagePosition } : undefined}
                       loading="lazy"
                     />
                     <span className="program-tag">{prog.tag}</span>
@@ -856,41 +982,41 @@ function App() {
             ================================================================== */}
         <section id="about" className="about-section">
           <div className="container about-grid">
-            <div className="about-image-stack">
-              <div className="about-main-image">
-                <img
-                  src="/images/academy-campus.jpg"
-                  alt="Bharateeya Matanga Academy Campus and Cultural Courtyard"
-                  loading="lazy"
-                />
+            <div className="about-left-col">
+              <div className="about-image-stack">
+                <div className="about-main-image">
+                  <img
+                    src="/images/academy-campus.jpg"
+                    alt="Bharateeya Matanga Academy Campus and Cultural Courtyard"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="about-floating-card">
+                  <strong>Est. 2017</strong>
+                  <span>Humnabad, Bidar District & Bengaluru, Karnataka</span>
+                </div>
               </div>
-              <div className="about-floating-card">
-                <strong>Est. 2017</strong>
-                <span>Humnabad, Bidar District & Bengaluru, Karnataka</span>
-              </div>
+              <p className="about-image-subtext">
+                The Academy's undertakes cultural programs, support for education, research, publications, music, dance and broader cultural initiatives. Under the scholarly vision of its founders and gurus, BMSSA stands as a revered bridge connecting ancient shastric wisdom with contemporary university education.
+              </p>
             </div>
 
             <div className="about-content">
               <div className="kicker">Our Academy</div>
               <h2 className="section-title">
-                A living space for <em>Indian culture</em>
+                A sacred space for <em>Indian culture</em>
               </h2>
               <p className="lead">
-                Founded in 2017 in Humnabad, the Academy describes its mission around cultural,
-                social and educational activities, with programs extending across Karnataka and
-                collaborations beyond India.
+                Founded in 2017 in Humnabad and with a centre in Bengaluru, the Academy describes its mission around promotion of Bharatiya culture and Indian classical performing art forms – Music & Dance, with programs extending across the country.
               </p>
               <p>
-                The Academy's existing public information highlights cultural programs, support for
-                education, research, publications, music, dance and broader cultural initiatives.
-                Under the scholarly vision of its founders and gurus, BMSSA stands as a revered bridge
-                connecting ancient shastric wisdom with contemporary university education.
+                Our approach to education in Indian classical music and dance is founded on a time-tested principle: a deep understanding of theory (Lakṣaṇa) is essential for a refined and authentic performance (Lakṣya).
               </p>
 
               <div className="focus-areas-list">
                 <div className="focus-item">
                   <CheckCircle2 size={18} />
-                  <span>Indian music & dance education</span>
+                  <span>Master of Performing Arts in Music & Dance</span>
                 </div>
                 <div className="focus-item">
                   <CheckCircle2 size={18} />
@@ -903,10 +1029,6 @@ function App() {
                 <div className="focus-item">
                   <CheckCircle2 size={18} />
                   <span>Performances, workshops & seminars</span>
-                </div>
-                <div className="focus-item" style={{ gridColumn: "span 2" }}>
-                  <CheckCircle2 size={18} />
-                  <span>Educational and community welfare initiatives</span>
                 </div>
               </div>
 
@@ -945,32 +1067,55 @@ function App() {
             <div className="legacy-grid">
               {LEGACY.map((pers) => (
                 <div key={pers.name} className="legacy-card">
-                  <div className="legacy-card-header">
-                    <div className="legacy-profile-top">
-                      {pers.image ? (
-                        <img src={pers.image} alt={pers.name} className="legacy-avatar-img" />
-                      ) : (
-                        <div className="legacy-avatar-crest">ॐ</div>
-                      )}
-                      <div className="legacy-meta">
-                        <span className="legacy-role-kicker">{pers.role}</span>
-                        <h3 className="legacy-name">{pers.name}</h3>
-                      </div>
-                    </div>
+                  <div className="legacy-image-wrap">
+                    {pers.image ? (
+                      <img
+                        src={pers.image}
+                        alt={pers.name}
+                        className="legacy-img"
+                        style={pers.imagePosition ? { objectPosition: pers.imagePosition } : undefined}
+                        loading="lazy"
+                        onError={(e) => {
+                          if (pers.fallbackImage && e.currentTarget.src !== pers.fallbackImage) {
+                            e.currentTarget.src = pers.fallbackImage;
+                          }
+                        }}
+                      />
+                    ) : (
+                      <div className="legacy-avatar-crest">ॐ</div>
+                    )}
+                    <div className="legacy-image-overlay" />
+                    <span className="legacy-tag">{pers.theme || pers.role}</span>
                   </div>
 
-                  <blockquote className="legacy-quote">
-                    "{pers.quote}"
-                  </blockquote>
+                  <div className="legacy-card-body">
+                    <span className="legacy-role-kicker">{pers.role}</span>
+                    <h3 className="legacy-name">{pers.name}</h3>
 
-                  <p className="legacy-desc">{pers.bio}</p>
+                    {pers.designations && pers.designations.length > 0 && (
+                      <div className="legacy-designations">
+                        {pers.designations.map((desig, idx) => (
+                          <div key={idx} className="legacy-designation-item">
+                            <span className="legacy-designation-bullet">✦</span>
+                            <span>{desig}</span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
 
-                  <div className="accolades-pill-row">
-                    {pers.accolades.map((acc) => (
-                      <span key={acc} className="accolade-pill">
-                        ✦ {acc}
-                      </span>
-                    ))}
+                    <blockquote className="legacy-quote">
+                      "{pers.quote}"
+                    </blockquote>
+
+                    <p className="legacy-desc">{pers.bio}</p>
+
+                    <div className="accolades-pill-row">
+                      {pers.accolades.map((acc) => (
+                        <span key={acc} className="accolade-pill">
+                          ✦ {acc}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
               ))}
@@ -1180,37 +1325,79 @@ function App() {
             <div className="gallery-filters">
               {[
                 ["all", "All Moments"],
-                ["music", "Karnataka Sangita"],
                 ["dance", "Bharatanatya"],
-                ["events", "Performances"],
-                ["workshops", "Workshops"],
-                ["campus", "Campus & Archives"]
+                ["music", "Karnataka Sangita"],
+                ["heritage", "Mentors & Academy"]
               ].map(([key, label]) => (
                 <button
                   key={key}
                   className={`filter-btn ${galleryFilter === key ? "active" : ""}`}
-                  onClick={() => setGalleryFilter(key)}
+                  onClick={() => {
+                    setGalleryFilter(key);
+                    setGalleryLimit(10);
+                  }}
                 >
                   {label}
                 </button>
               ))}
             </div>
 
-            <div className="gallery-grid">
-              {filteredGallery.map((item) => (
+            <div className="gallery-masonry">
+              {visibleGallery.map((item) => (
                 <div
                   key={item.id}
-                  className="gallery-card"
+                  className="gallery-masonry-item"
                   onClick={() => setLightboxItem(item)}
+                  role="button"
+                  tabIndex={0}
+                  aria-label={`View photo: ${item.title}`}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      setLightboxItem(item);
+                    }
+                  }}
                 >
-                  <img src={item.image} alt={item.title} loading="lazy" />
-                  <div className="gallery-overlay">
-                    <span className="gallery-tag">{item.tag}</span>
-                    <h4 className="gallery-title">{item.title}</h4>
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    loading="lazy"
+                    onError={(e) => {
+                      if (item.fallbackImage && e.currentTarget.src !== item.fallbackImage) {
+                        e.currentTarget.src = item.fallbackImage;
+                      }
+                    }}
+                  />
+                  <div className="gallery-masonry-overlay">
+                    <span className="gallery-masonry-tag">{item.tag}</span>
+                    <h4 className="gallery-masonry-title">{item.title}</h4>
                   </div>
                 </div>
               ))}
             </div>
+
+            {filteredGallery.length > 10 && (
+              <div className="gallery-show-more-wrap">
+                <button
+                  className="btn btn-primary"
+                  onClick={() =>
+                    setGalleryLimit(galleryLimit >= filteredGallery.length ? 10 : filteredGallery.length)
+                  }
+                >
+                  {galleryLimit < filteredGallery.length ? (
+                    <>
+                      Show More Pictures ({filteredGallery.length - galleryLimit} more)
+                      <ChevronDown size={18} />
+                    </>
+                  ) : (
+                    <>
+                      Show Less
+                      <ChevronUp size={18} />
+                    </>
+                  )}
+                </button>
+              </div>
+            )}
           </div>
         </section>
 
@@ -1323,56 +1510,7 @@ function App() {
           </div>
         </section>
 
-        {/* ==================================================================
-            12. ADMISSIONS CTA BANNER (Maroon & Gold)
-            ================================================================== */}
-        <section className="admissions-cta-section">
-          <div className="container">
-            <div className="cta-banner-box">
-              <div className="cta-banner-content">
-                <div className="cta-banner-copy">
-                  <span className="hero-eyebrow" style={{ color: "#FFE4A3", borderColor: "rgba(255,228,163,0.4)" }}>
-                    Admissions 2026-27
-                  </span>
-                  <h2>Begin your journey in Indian arts.</h2>
-                  <p>
-                    Bharateeya Matanga Samajik Samskrik Academy invites aspiring musicians,
-                    dancers, and scholars to enroll in confirmed Master of Performing Arts programs.
-                    Recognised by Kannada University, Hampi.
-                  </p>
-                  <div style={{ marginTop: "16px", display: "flex", gap: "18px", flexWrap: "wrap", fontSize: "0.9rem", color: "var(--gold-light)" }}>
-                    <span>✓ Karnataka Sangita (MPA)</span>
-                    <span>✓ Bharatanatya (MPA)</span>
-                    <span>✓ Senior Exam Exempted</span>
-                  </div>
-                </div>
 
-                <div className="cta-banner-actions">
-                  <button
-                    className="btn btn-gold"
-                    onClick={() => handleApplyClick("Master of Performing Arts — Karnataka Sangita")}
-                  >
-                    Apply for Admission <ArrowRight size={17} />
-                  </button>
-                  <a
-                    href={`https://wa.me/${ACADEMY_INFO.primaryPhoneRaw}?text=${encodeURIComponent("Hello BMSSA, I would like to enquire about MPA admissions 2026-27")}`}
-                    className="btn btn-whatsapp"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <MessageCircle size={18} /> WhatsApp Enquiry
-                  </a>
-                  <a
-                    href={`tel:${ACADEMY_INFO.primaryPhoneRaw}`}
-                    style={{ textAlign: "center", fontSize: "0.82rem", color: "var(--gold-light)", marginTop: "4px" }}
-                  >
-                    Direct Helpline: {ACADEMY_INFO.primaryPhone}
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
 
         {/* ==================================================================
             13. FREQUENTLY ASKED QUESTIONS (FAQ)
@@ -1589,9 +1727,8 @@ function App() {
                       value={formData.seniorExam}
                       onChange={(e) => setFormData({ ...formData, seniorExam: e.target.value })}
                     >
-                      <option value="no">No (I will appear for Entrance Exam)</option>
                       <option value="yes">Yes (Entrance Exam Exempted)</option>
-                      <option value="pursuing">Currently Pursuing Senior Exam</option>
+                      <option value="no">No – Have not completed Senior Exam</option>
                     </select>
                   </div>
 
@@ -1750,11 +1887,16 @@ function App() {
               <X size={20} />
             </button>
 
-            <div style={{ height: "240px", overflow: "hidden", position: "relative" }}>
+            <div style={{ height: "260px", overflow: "hidden", position: "relative" }}>
               <img
-                src={courseModal.image}
+                src={courseModal.modalImage || courseModal.image}
                 alt={courseModal.title}
-                style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  objectPosition: courseModal.modalImagePosition || courseModal.imagePosition || "center center"
+                }}
               />
               <div
                 style={{
@@ -1810,7 +1952,7 @@ function App() {
               </div>
 
               <h4 style={{ fontFamily: "var(--font-serif)", fontSize: "1.2rem", color: "var(--maroon-darkest)", margin: "20px 0 10px" }}>
-                Curriculum & Performance Focus
+                Curriculum
               </h4>
               <ul style={{ paddingLeft: "20px", color: "var(--ink-muted)", fontSize: "0.9rem", lineHeight: 1.8 }}>
                 {courseModal.curriculum.map((curr, idx) => (
@@ -1862,7 +2004,7 @@ function App() {
                 Admissions 2026-27
               </div>
               <h3 style={{ fontFamily: "var(--font-serif)", fontSize: "1.75rem", margin: "6px 0 8px" }}>
-                Apply for Admission
+                Apply for Admission MPA course
               </h3>
               <p style={{ color: "#E8D5D8", fontSize: "0.88rem" }}>
                 Recognised by Kannada University, Hampi. Submit your preliminary registration below.
@@ -1871,7 +2013,7 @@ function App() {
 
             <div style={{ padding: "26px" }}>
               <div style={{ background: "var(--ivory-base)", border: "1px solid var(--cream-border)", padding: "14px", borderRadius: "8px", marginBottom: "20px", fontSize: "0.82rem", color: "var(--ink-muted)" }}>
-                <strong>Note:</strong> Official University Application Google Form link is pending from the Academy. Submitting this form directly notifies the BMSSA admissions team and sends your pre-registration via WhatsApp.
+                <strong>Note:</strong> Please submit this form for pre-registration and BMSS admin team will contact you and take you through further admission process.
               </div>
 
               <form onSubmit={handleFormSubmit}>
@@ -1923,8 +2065,7 @@ function App() {
                     onChange={(e) => setFormData({ ...formData, seniorExam: e.target.value })}
                   >
                     <option value="yes">Yes — Passed Senior Exam (Entrance Exempted)</option>
-                    <option value="no">No — Standard Bachelor Degree</option>
-                    <option value="pursuing">Currently Pursuing Exam</option>
+                    <option value="no">No – Have not completed Senior Exam</option>
                   </select>
                 </div>
 
@@ -2083,11 +2224,18 @@ function App() {
             >
               <X size={20} />
             </button>
-            <img
-              src={lightboxItem.image}
-              alt={lightboxItem.title}
-              style={{ width: "100%", maxHeight: "70vh", objectFit: "cover" }}
-            />
+            <div style={{ background: "#0c0407", display: "flex", justifyContent: "center", alignItems: "center", minHeight: "260px" }}>
+              <img
+                src={lightboxItem.image}
+                alt={lightboxItem.title}
+                onError={(e) => {
+                  if (lightboxItem.fallbackImage && e.currentTarget.src !== lightboxItem.fallbackImage) {
+                    e.currentTarget.src = lightboxItem.fallbackImage;
+                  }
+                }}
+                style={{ width: "100%", maxHeight: "78vh", objectFit: "contain" }}
+              />
+            </div>
             <div style={{ padding: "20px", background: "var(--ivory-base)" }}>
               <span className="gallery-tag">{lightboxItem.tag}</span>
               <h4 style={{ fontFamily: "var(--font-serif)", fontSize: "1.35rem", color: "var(--maroon-darkest)", marginTop: "4px" }}>
