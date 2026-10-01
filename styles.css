@@ -436,6 +436,107 @@ img {
   gap: 12px;
 }
 
+/* Language Switcher Button (Top Right Corner) */
+.lang-switcher-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  background: #FFFDF9;
+  border: 1.5px solid var(--gold-antique);
+  color: var(--maroon-deep);
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(114, 9, 36, 0.08);
+  transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.lang-switcher-btn:hover {
+  background: var(--maroon-deep);
+  color: #fff;
+  border-color: var(--maroon-deep);
+  box-shadow: 0 4px 14px rgba(114, 9, 36, 0.25);
+  transform: translateY(-2px);
+}
+
+.lang-switcher-btn .lang-icon {
+  color: var(--gold-antique);
+  transition: transform 0.4s ease;
+}
+
+.lang-switcher-btn:hover .lang-icon {
+  color: #FFE4A3;
+  transform: rotate(35deg);
+}
+
+.top-bar-lang-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(200, 164, 93, 0.2);
+  color: var(--gold-light);
+  border: 1px solid rgba(200, 164, 93, 0.45);
+  padding: 3px 12px;
+  border-radius: 20px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-left: 8px;
+}
+
+.top-bar-lang-pill:hover {
+  background: var(--gold-antique);
+  color: var(--maroon-darkest);
+  border-color: var(--gold-antique);
+}
+
+/* Kannada Specific Typography */
+:lang(kn),
+html[lang="kn"],
+body.lang-kn {
+  font-family: 'Noto Sans Kannada', 'Inter', system-ui, sans-serif;
+}
+
+html[lang="kn"] h1,
+html[lang="kn"] h2,
+html[lang="kn"] h3,
+html[lang="kn"] h4,
+html[lang="kn"] .hero-headline,
+html[lang="kn"] .section-title,
+html[lang="kn"] .brand-title,
+html[lang="kn"] .legacy-name,
+html[lang="kn"] .stamp-faculty-name {
+  font-family: 'Noto Serif Kannada', 'Cormorant Garamond', Georgia, serif;
+  line-height: 1.35;
+}
+
+html[lang="kn"] .hero-italic,
+html[lang="kn"] em {
+  font-family: 'Noto Serif Kannada', 'Cormorant Garamond', Georgia, serif;
+  font-style: normal;
+  font-weight: 700;
+  color: var(--gold-light);
+}
+
+html[lang="kn"] .section-title em {
+  color: var(--maroon-deep);
+}
+
+html[lang="kn"] .brand-sub {
+  font-size: 0.74rem;
+  line-height: 1.25;
+}
+
+html[lang="kn"] .nav-link {
+  font-size: 0.85rem;
+}
+
 .campaign-mode-toggle {
   font-size: 0.78rem;
   font-weight: 700;
@@ -610,11 +711,13 @@ img {
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
-.hero-headline em {
+.hero-headline em,
+.hero-italic {
   font-style: italic;
   color: #FFE4A3;
   display: block;
   font-weight: 400;
+  margin-top: 4px;
 }
 
 /* Hero Description */
