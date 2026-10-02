@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { createRoot } from "react-dom/client";
 import {
   Menu, X, ArrowRight, Music2, Sparkles, GraduationCap, Users,
-  CalendarDays, Image as ImageIcon, Phone, Mail, MapPin, ChevronDown, ChevronUp,
+  CalendarDays, Image as ImageIcon, Phone, MapPin, ChevronDown, ChevronUp,
   MessageCircle, BookOpen, Award, Globe2, CheckCircle2, FileText,
   Clock, ShieldCheck, ChevronRight, ExternalLink, HelpCircle,
   Building2, Landmark, Check, Send, AlertCircle
@@ -784,7 +784,7 @@ Message: ${formData.message || 'I would like to apply for MPA Admissions 2026-27
               <span>{t.faculty.managementHeading}</span>
             </div>
 
-            <div className="faculty-stamp-grid">
+            <div className="faculty-stamp-grid management-grid">
               {t.faculty.data.management.map((m, idx) => (
                 <div
                   key={m.name}
@@ -1168,16 +1168,6 @@ Message: ${formData.message || 'I would like to apply for MPA Admissions 2026-27
                 </div>
               </div>
 
-              <div className="contact-detail-row">
-                <div className="contact-icon-bubble">
-                  <Mail size={20} />
-                </div>
-                <div className="contact-detail-text">
-                  <small>{t.contact.emailHeading}</small>
-                  <strong>bmssacademy.h@gmail.com</strong>
-                  <p>{t.contact.emailSub}</p>
-                </div>
-              </div>
 
               <div className="contact-detail-row">
                 <div className="contact-icon-bubble">
@@ -1378,15 +1368,9 @@ Message: ${formData.message || 'I would like to apply for MPA Admissions 2026-27
               </p>
               <a
                 href="tel:918939689737"
-                style={{ display: "block", color: "var(--gold-light)", fontWeight: 700, marginBottom: "8px" }}
+                style={{ display: "block", color: "var(--gold-light)", fontWeight: 700 }}
               >
                 +91 89396 89737
-              </a>
-              <a
-                href="mailto:bmssacademy.h@gmail.com"
-                style={{ display: "block", color: "#E0D2D5", fontSize: "0.85rem" }}
-              >
-                bmssacademy.h@gmail.com
               </a>
             </div>
           </div>

@@ -1390,6 +1390,17 @@ html[lang="kn"] .nav-link {
   margin-top: 25px;
 }
 
+.faculty-stamp-grid.management-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.faculty-stamp-grid.management-grid .faculty-stamp-card {
+  max-width: 360px;
+  width: 100%;
+}
+
 .faculty-stamp-card {
   background: radial-gradient(circle at 50% 15%, rgba(200, 164, 93, 0.12), transparent 65%),
               linear-gradient(160deg, #4A0216 0%, #25000C 100%);
@@ -2701,10 +2712,26 @@ html[lang="kn"] .nav-link {
 }
 
 @media (max-width: 768px) {
+  .header-inner {
+    height: 70px;
+    gap: 12px;
+  }
+
+  .brand-link {
+    gap: 0;
+  }
+
   .brand-logo-img {
     width: 48px;
     height: 48px;
+    object-fit: contain;
+    aspect-ratio: 1 / 1;
   }
+
+  .brand-text {
+    display: none !important;
+  }
+
 
   .hero-batch-pill {
     padding: 8px 16px;
@@ -2737,7 +2764,7 @@ html[lang="kn"] .nav-link {
   .site-header .nav-menu {
     display: none;
     position: absolute;
-    top: 84px;
+    top: 100%;
     left: 0;
     right: 0;
     background-color: var(--ivory-base);
@@ -2830,3 +2857,30 @@ html[lang="kn"] .nav-link {
     right: 16px;
   }
 }
+
+@media (max-width: 480px) {
+  .header-inner {
+    height: 64px;
+    gap: 8px;
+  }
+
+  .brand-logo-img {
+    width: 42px;
+    height: 42px;
+  }
+
+  .header-actions {
+    gap: 6px;
+  }
+
+  .header-actions .btn {
+    padding: 7px 12px;
+    font-size: 0.8rem;
+  }
+
+  .lang-switcher-btn {
+    padding: 5px 9px;
+    font-size: 0.78rem;
+  }
+}
+

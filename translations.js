@@ -25,7 +25,7 @@ export const TRANSLATIONS = {
       admissions: "Admissions",
       faqs: "FAQs",
       contact: "Contact",
-      applyBtn: "Apply for Admission",
+      applyBtn: "Apply Now",
       langSwitchLabel: "ಕನ್ನಡ",
       langTooltip: "ವೆಬ್‌ಸೈಟ್ ಭಾಷೆಯನ್ನು ಕನ್ನಡಕ್ಕೆ ಬದಲಾಯಿಸಿ / Switch to Kannada"
     },
@@ -40,8 +40,7 @@ export const TRANSLATIONS = {
       established: "2017",
       location: "Humnabad, Bidar District & Bengaluru, Karnataka",
       affiliation: "Recognised by Kannada University, Hampi",
-      primaryPhone: "+91 89396 89737",
-      email: "bmssacademy.h@gmail.com"
+      primaryPhone: "+91 89396 89737"
     },
 
     // Hero Section
@@ -79,7 +78,7 @@ export const TRANSLATIONS = {
       eligibilityLabel: "Eligibility",
       exemptionLabel: "Entrance Exemption:",
       viewCourseDetailsBtn: "View Course Details",
-      applyBtn: "Apply for Admission",
+      applyBtn: "Apply Now",
       list: [
         {
           id: "karnataka-sangita",
@@ -290,23 +289,6 @@ export const TRANSLATIONS = {
               "Over 3 Decades of Social & Cultural Service",
               "Temple Builder & Philanthropist",
               "Patron of Matangamuni Research Publications"
-            ]
-          },
-          {
-            id: "santosh-prasad",
-            name: "Sri Santosh Prasad",
-            designation: "Executive Admin",
-            department: "Administration & Student Welfare",
-            stampCategory: "SEVA",
-            image: "/images/arts-workshop.jpg",
-            phone: "+91 98862 52375",
-            shortBio: "Ministry of Culture Junior Fellowship awardee, accomplished Bharatanatyam artist, and administrator managing student welfare, admissions, and university liaison.",
-            fullBio: "Sri Santosh Prasad is a very able, hard working and successful administrator and a Bharatanatyam artist. He is an interior designer by profession and an artist by heart. He was awarded the prestigious Junior Fellowship by Ministry of Culture, Government of India. He is serving the institution as executive admin to take care of student welfare, admissions, scheduling of academic sessions, seminars and examination work.",
-            highlights: [
-              "Executive Admin — Admissions & Student Welfare",
-              "Junior Fellowship Awardee, Ministry of Culture (Govt. of India)",
-              "Accomplished Bharatanatyam Artist",
-              "Academic Scheduling & University Liaison"
             ]
           }
         ]
@@ -531,7 +513,7 @@ export const TRANSLATIONS = {
         },
         {
           q: "How can I apply?",
-          a: "Use the Apply for Admission button once the Academy's application link is connected, or contact the Academy through WhatsApp at +91 89396 89737."
+          a: "Use the Apply Now button once the Academy's application link is connected, or contact the Academy through WhatsApp at +91 89396 89737."
         },
         {
           q: "How many sets of documents need to be submitted?",
@@ -548,16 +530,13 @@ export const TRANSLATIONS = {
       desc: "We welcome prospective students, scholars, and patrons of classical Indian arts. Connect with the Academy administration for admissions, syllabus overviews, and campus visits.",
       phoneHeading: "Primary Admission Phone & WhatsApp",
       phoneSub: "Admissions helpline & instant WhatsApp responses",
-      emailHeading: "Academy Official Email",
-      emailSub: "Brochure inquiries & formal university correspondences",
       locationsHeading: "Academy Locations",
       locationsVal: "Humnabad, Bidar District & Bengaluru, Karnataka",
       locationsSub: "Main Campus & Administrative Liaison Center",
       deptContactsTitle: "Department-Specific Contacts",
       deptContacts: [
         { name: "Dr. Ambika Shastry (HOD, Music Dept)", phone: "+91 99805 13526" },
-        { name: "Vidushi. Ranjana Nagaraj (HOD, Dance Dept)", phone: "+91 99019 27272" },
-        { name: "Shri Santhosh Prasad (Executive Admin)", phone: "+91 98862 52375" }
+        { name: "Vidushi. Ranjana Nagaraj (HOD, Dance Dept)", phone: "+91 99019 27272" }
       ],
       formHeading: "Send an Admission Enquiry",
       formDesc: "Fill out your details below. Our admissions desk will promptly connect with you.",
@@ -606,7 +585,7 @@ export const TRANSLATIONS = {
       catEligibility: "Category Eligibility",
       entranceExemption: "Entrance Exam Exemption:",
       curriculumHeading: "Curriculum",
-      applyForProgramBtn: "Apply for This Program",
+      applyForProgramBtn: "Apply Now",
       whatsappInquiryBtn: "WhatsApp Inquiry",
       applyModalEyebrow: "Admissions 2026-27",
       applyModalHeading: "Apply for Admission MPA course",
@@ -656,7 +635,7 @@ export const TRANSLATIONS = {
       admissions: "ಪ್ರವೇಶ ಪ್ರಕ್ರಿಯೆ",
       faqs: "ಪ್ರಶ್ನೋತ್ತರ",
       contact: "ಸಂಪರ್ಕ",
-      applyBtn: "ಪ್ರವೇಶಕ್ಕೆ ಅರ್ಜಿ ಸಲ್ಲಿಸಿ",
+      applyBtn: "ಈಗಲೇ ಅರ್ಜಿ ಸಲ್ಲಿಸಿ",
       langSwitchLabel: "English",
       langTooltip: "Switch website language to English / ಇಂಗ್ಲಿಷ್ ಭಾಷೆಗೆ ಬದಲಾಯಿಸಿ"
     },
@@ -671,8 +650,7 @@ export const TRANSLATIONS = {
       established: "2017",
       location: "ಹುಮ್ನಾಬಾದ್, ಬೀದರ್ ಜಿಲ್ಲೆ ಮತ್ತು ಬೆಂಗಳೂರು, ಕರ್ನಾಟಕ",
       affiliation: "ಕನ್ನಡ ವಿಶ್ವವಿದ್ಯಾಲಯ, ಹಂಪಿ ಮಾನ್ಯತೆ ಪಡೆದಿದೆ",
-      primaryPhone: "+91 89396 89737",
-      email: "bmssacademy.h@gmail.com"
+      primaryPhone: "+91 89396 89737"
     },
 
     // Hero Section
@@ -710,7 +688,7 @@ export const TRANSLATIONS = {
       eligibilityLabel: "ಅರ್ಹತೆ",
       exemptionLabel: "ಪ್ರವೇಶ ಪರೀಕ್ಷಾ ವಿನಾಯಿತಿ:",
       viewCourseDetailsBtn: "ವಿವರವಾದ ಪಠ್ಯಕ್ರಮ ನೋಡಿ",
-      applyBtn: "ಪ್ರವೇಶಕ್ಕೆ ಅರ್ಜಿ ಸಲ್ಲಿಸಿ",
+      applyBtn: "ಈಗಲೇ ಅರ್ಜಿ ಸಲ್ಲಿಸಿ",
       list: [
         {
           id: "karnataka-sangita",
@@ -921,23 +899,6 @@ export const TRANSLATIONS = {
               "೩ ದಶಕಗಳಿಗೂ ಹೆಚ್ಚಿನ ಸಮಾಜ ಮತ್ತು ಸಾಂಸ್ಕೃತಿಕ ಸೇವೆ",
               "ದೇವಾಲಯ ನಿರ್ಮಾತೃ ಮತ್ತು ಸಮಾಜ ಸೇವಕರು",
               "ಮತಂಗಮುನಿ ಸಂಶೋಧನಾ ಗ್ರಂಥಗಳ ಮುಖ್ಯ ಪೋಷಕರು"
-            ]
-          },
-          {
-            id: "santosh-prasad",
-            name: "ಶ್ರೀ ಸಂತೋಷ್ ಪ್ರಸಾದ್",
-            designation: "ಕಾರ್ಯನಿರ್ವಾಹಕ ಆಡಳಿತಾಧಿಕಾರಿ",
-            department: "ಆಡಳಿತ ಮತ್ತು ವಿದ್ಯಾರ್ಥಿ ಕಲ್ಯಾಣ",
-            stampCategory: "ಸೇವೆ",
-            image: "/images/arts-workshop.jpg",
-            phone: "+91 98862 52375",
-            shortBio: "ಕೇಂದ್ರ ಸಾಂಸ್ಕೃತಿಕ ಸಚಿವಾಲಯದ ಜೂನಿಯರ್ ಫೆಲೋಶಿಪ್ ಪುರಸ್ಕೃತರು, ಪರಿಣಿತ ಭರತನಾಟ್ಯ ಕಲಾವಿದರು ಮತ್ತು ಆಡಳಿತ ಸಮನ್ವಯಕಾರರು.",
-            fullBio: "ಶ್ರೀ ಸಂತೋಷ್ ಪ್ರಸಾದ್ ಅವರು ಅತ್ಯಂತ ದಕ್ಷ, ಶ್ರಮಜೀವಿ ಹಾಗೂ ಯಶಸ್ವಿ ಆಡಳಿತಾಧಿಕಾರಿ ಮತ್ತು ಭರತನಾಟ್ಯ ಕಲಾವಿದರು. ವೃತ್ತಿಯಲ್ಲಿ ಇಂಟೀರಿಯರ್ ಡಿಸೈನರ್ ಆಗಿದ್ದು, ಕಲಾತ್ಮಕ ಹೃದಯವುಳ್ಳವರು. ಭಾರತ ಸರ್ಕಾರದ ಸಾಂಸ್ಕೃತಿಕ ಸಚಿವಾಲಯದಿಂದ ಪ್ರತಿಷ್ಠಿತ ಜೂನಿಯರ್ ಫೆಲೋಶಿಪ್ ಪಡೆದಿದ್ದಾರೆ. ಅಕಾಡೆಮಿಯ ಕಾರ್ಯನಿರ್ವಾಹಕ ಆಡಳಿತಾಧಿಕಾರಿಯಾಗಿ ವಿದ್ಯಾರ್ಥಿ ಕಲ್ಯಾಣ, ಪ್ರವೇಶ ಪ್ರಕ್ರಿಯೆ, ಶೈಕ್ಷಣಿಕ ತರಗತಿಗಳ ವೇಳಾಪಟ್ಟಿ, ವಿಚಾರಸಂಕಿರಣಗಳು ಹಾಗೂ ವಿಶ್ವವಿದ್ಯಾಲಯ ಪರೀಕ್ಷಾ ಸಮನ್ವಯ ಕಾರ್ಯಗಳನ್ನು ಸಮರ್ಥವಾಗಿ ನಿರ್ವಹಿಸುತ್ತಿದ್ದಾರೆ.",
-            highlights: [
-              "ಕಾರ್ಯನಿರ್ವಾಹಕ ಆಡಳಿತ — ಪ್ರವೇಶ & ವಿದ್ಯಾರ್ಥಿ ಕಲ್ಯಾಣ",
-              "ಕೇಂದ್ರ ಸಾಂಸ್ಕೃತಿಕ ಸಚಿವಾಲಯದ ಜೂನಿಯರ್ ಫೆಲೋಶಿಪ್ ಪುರಸ್ಕೃತರು",
-              "ಪ್ರತಿಭಾವಂತ ಭರತನಾಟ್ಯ ಕಲಾವಿದರು",
-              "ಶೈಕ್ಷಣಿಕ ವೇಳಾಪಟ್ಟಿ & ವಿಶ್ವವಿದ್ಯಾಲಯ ಸಮನ್ವಯ"
             ]
           }
         ]
@@ -1162,7 +1123,7 @@ export const TRANSLATIONS = {
         },
         {
           q: "2026-27ರ ಪ್ರವೇಶಕ್ಕೆ ಅರ್ಜಿ ಸಲ್ಲಿಸುವುದು ಹೇಗೆ?",
-          a: "ಈ ವೆಬ್‌ಸೈಟ್‌ನಲ್ಲಿರುವ 'ಪ್ರವೇಶಕ್ಕೆ ಅರ್ಜಿ ಸಲ್ಲಿಸಿ' ಬಟನ್ ಬಳಸಿ ಮುಂಗಡ ನೋಂದಣಿ ಮಾಡಿಕೊಳ್ಳಬಹುದು ಅಥವಾ ನಮ್ಮ ಪ್ರವೇಶ ಕಚೇರಿಯನ್ನು +91 89396 89737 ಗೆ ಕರೆ ಮಾಡಿ ಸಂಪರ್ಕಿಸಬಹುದು."
+          a: "ಈ ವೆಬ್‌ಸೈಟ್‌ನಲ್ಲಿರುವ 'ಈಗಲೇ ಅರ್ಜಿ ಸಲ್ಲಿಸಿ' ಬಟನ್ ಬಳಸಿ ಮುಂಗಡ ನೋಂದಣಿ ಮಾಡಿಕೊಳ್ಳಬಹುದು ಅಥವಾ ನಮ್ಮ ಪ್ರವೇಶ ಕಚೇರಿಯನ್ನು +91 89396 89737 ಗೆ ಕರೆ ಮಾಡಿ ಸಂಪರ್ಕಿಸಬಹುದು."
         },
         {
           q: "ಎಷ್ಟು ಸೆಟ್ ದಾಖಲೆಗಳನ್ನು ಸಲ್ಲಿಸಬೇಕು?",
@@ -1179,16 +1140,13 @@ export const TRANSLATIONS = {
       desc: "ಭಾವಿ ವಿದ್ಯಾರ್ಥಿಗಳು, ಕಲಾ ವಿದ್ವಾಂಸರು ಮತ್ತು ಭಾರತೀಯ ಕಲಾ ಪ್ರೇಮಿಗಳನ್ನು ನಾವು ಹೃತ್ಪೂರ್ವಕವಾಗಿ ಸ್ವಾಗತಿಸುತ್ತೇವೆ. ಪ್ರವೇಶ, ಪಠ್ಯಕ್ರಮ ಮತ್ತು ಕೇಂದ್ರ ಭೇಟಿಗಾಗಿ ನಮ್ಮ ಆಡಳಿತ ಕಚೇರಿಯನ್ನು ಸಂಪರ್ಕಿಸಿ.",
       phoneHeading: "ಪ್ರವೇಶ ದೂರವಾಣಿ & ವಾಟ್ಸಾಪ್ ಸಂಪರ್ಕ",
       phoneSub: "ಪ್ರವೇಶ ಸಹಾಯವಾಣಿ ಮತ್ತು ತ್ವರಿತ ವಾಟ್ಸಾಪ್ ಸ್ಪಂದನೆ",
-      emailHeading: "ಅಕಾಡೆಮಿಯ ಅಧಿಕೃತ ಇಮೇಲ್",
-      emailSub: "ಮಾಹಿತಿ ಪತ್ರ ಹಾಗೂ ವಿಶ್ವವಿದ್ಯಾಲಯದ ಅಧಿಕೃತ ಪತ್ರವ್ಯವಹಾರ",
       locationsHeading: "ಅಕಾಡೆಮಿಯ ಕೇಂದ್ರಗಳು",
       locationsVal: "ಹುಮ್ನಾಬಾದ್, ಬೀದರ್ ಜಿಲ್ಲೆ ಮತ್ತು ಬೆಂಗಳೂರು, ಕರ್ನಾಟಕ",
       locationsSub: "ಮುಖ್ಯ ಕ್ಯಾಂಪಸ್ ಮತ್ತು ಶೈಕ್ಷಣಿಕ ಸಮನ್ವಯ ಕೇಂದ್ರ",
       deptContactsTitle: "ವಿಭಾಗವಾರು ಸಂಪರ್ಕ ವಿವರ",
       deptContacts: [
         { name: "ಡಾ. ಅಂಬಿಕಾ ಶಾಸ್ತ್ರಿ (ಮುಖ್ಯಸ್ಥರು, ಸಂಗೀತ ವಿಭಾಗ)", phone: "+91 99805 13526" },
-        { name: "ವಿದುಷಿ. ರಂಜನಾ ನಾಗರಾಜ್ (ಮುಖ್ಯಸ್ಥರು, ನೃತ್ಯ ವಿಭಾಗ)", phone: "+91 99019 27272" },
-        { name: "ಶ್ರೀ ಸಂತೋಷ್ ಪ್ರಸಾದ್ (ಕಾರ್ಯನಿರ್ವಾಹಕ ಆಡಳಿತ)", phone: "+91 98862 52375" }
+        { name: "ವಿದುಷಿ. ರಂಜನಾ ನಾಗರಾಜ್ (ಮುಖ್ಯಸ್ಥರು, ನೃತ್ಯ ವಿಭಾಗ)", phone: "+91 99019 27272" }
       ],
       formHeading: "ಪ್ರವೇಶ ವಿಚಾರಣೆ ಕಳುಹಿಸಿ",
       formDesc: "ಕೆಳಗಿನ ನಮೂನೆಯಲ್ಲಿ ನಿಮ್ಮ ವಿವರಗಳನ್ನು ಭರ್ತಿ ಮಾಡಿ. ನಮ್ಮ ಪ್ರವೇಶ ಕೇಂದ್ರವು ಶೀಘ್ರದಲ್ಲೇ ನಿಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸುತ್ತದೆ.",
@@ -1237,7 +1195,7 @@ export const TRANSLATIONS = {
       catEligibility: "ಮೀಸಲಾತಿ ವರ್ಗದ ಅರ್ಹತೆ",
       entranceExemption: "ಪ್ರವೇಶ ಪರೀಕ್ಷಾ ವಿನಾಯಿತಿ:",
       curriculumHeading: "ಪಠ್ಯಕ್ರಮದ ಅಧ್ಯಾಯಗಳು",
-      applyForProgramBtn: "ಈ ಕೋರ್ಸ್‌ಗೆ ಅರ್ಜಿ ಸಲ್ಲಿಸಿ",
+      applyForProgramBtn: "ಈಗಲೇ ಅರ್ಜಿ ಸಲ್ಲಿಸಿ",
       whatsappInquiryBtn: "ವಾಟ್ಸಾಪ್ ವಿಚಾರಣೆ",
       applyModalEyebrow: "ಪ್ರವೇಶ 2026-27",
       applyModalHeading: "ಎಂ.ಪಿ.ಎ ಪ್ರವೇಶಕ್ಕೆ ಅರ್ಜಿ ಸಲ್ಲಿಸಿ",
