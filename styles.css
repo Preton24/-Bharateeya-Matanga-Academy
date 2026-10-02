@@ -318,7 +318,7 @@ img {
 }
 
 .header-inner {
-  height: 84px;
+  height: 88px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -334,8 +334,8 @@ img {
 }
 
 .brand-logo-img {
-  width: 58px;
-  height: 58px;
+  width: 72px;
+  height: 72px;
   object-fit: contain;
   filter: drop-shadow(0 4px 10px rgba(67, 0, 22, 0.22));
   transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.3s ease;
@@ -2932,7 +2932,7 @@ html[lang="kn"] .nav-link {
 
 @media (max-width: 768px) {
   .header-inner {
-    height: 70px;
+    height: 76px;
     gap: 12px;
   }
 
@@ -2941,8 +2941,8 @@ html[lang="kn"] .nav-link {
   }
 
   .brand-logo-img {
-    width: 48px;
-    height: 48px;
+    width: 60px;
+    height: 60px;
     object-fit: contain;
     aspect-ratio: 1 / 1;
   }
@@ -3132,13 +3132,13 @@ html[lang="kn"] .nav-link {
 
 @media (max-width: 480px) {
   .header-inner {
-    height: 64px;
+    height: 70px;
     gap: 8px;
   }
 
   .brand-logo-img {
-    width: 42px;
-    height: 42px;
+    width: 54px;
+    height: 54px;
   }
 
   .header-actions {
