@@ -1349,7 +1349,7 @@ Message: ${formData.message || 'I would like to apply for MPA Admissions 2026-27
                 </span>
                 <div className="contact-social-actions">
                   <a
-                    href="https://www.instagram.com/bmssacademy?stkn=MXY3ZGJiOWF3YWVzZw=="
+                    href="https://www.instagram.com/bharateeyamatangaacademy/?hl=en"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="contact-social-pill contact-social-pill-instagram"
@@ -1506,7 +1506,7 @@ Message: ${formData.message || 'I would like to apply for MPA Admissions 2026-27
                   <Facebook size={18} />
                 </a>
                 <a
-                  href="https://www.instagram.com/bmssacademy?stkn=MXY3ZGJiOWF3YWVzZw=="
+                  href="https://www.instagram.com/bharateeyamatangaacademy/?hl=en"
                   target="_blank"
                   rel="noreferrer"
                   className="footer-social-btn"
