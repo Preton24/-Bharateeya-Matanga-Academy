@@ -2254,6 +2254,8 @@ html[lang="kn"] .nav-link {
   border-radius: var(--radius-md);
   overflow: hidden;
   transition: var(--transition-smooth);
+  word-break: break-word;
+  overflow-wrap: anywhere;
 }
 
 .faq-item.open {
@@ -2273,6 +2275,13 @@ html[lang="kn"] .nav-link {
   font-size: 1.25rem;
   font-weight: 600;
   color: var(--maroon-darkest);
+  cursor: pointer;
+}
+
+.faq-question-btn span {
+  flex: 1;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .faq-question-btn svg {
@@ -2892,6 +2901,7 @@ html[lang="kn"] .nav-link {
   .about-grid,
   .legacy-grid,
   .faculty-grid,
+  .faq-layout,
   .contact-grid {
     grid-template-columns: 1fr;
     gap: 40px;
@@ -3095,6 +3105,29 @@ html[lang="kn"] .nav-link {
   .faculty-stamp-card {
     padding: 18px 14px 20px;
   }
+
+  /* FAQ Section Mobile */
+  .faq-section {
+    padding: 65px 0;
+  }
+
+  .faq-layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .faq-question-btn {
+    padding: 16px 18px;
+    font-size: 1.05rem;
+    gap: 12px;
+  }
+
+  .faq-answer {
+    padding: 0 18px 18px;
+    padding-top: 14px;
+    font-size: 0.88rem;
+    line-height: 1.6;
+  }
 }
 
 @media (max-width: 480px) {
@@ -3152,6 +3185,39 @@ html[lang="kn"] .nav-link {
 
   .faculty-stamp-card {
     padding: 14px 10px 16px;
+  }
+
+  /* FAQ Section Small Phones */
+  .faq-section {
+    padding: 50px 0;
+  }
+
+  .faq-layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .faq-question-btn {
+    padding: 14px 14px;
+    font-size: 0.94rem;
+    line-height: 1.35;
+    gap: 10px;
+  }
+
+  .faq-question-btn svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .faq-answer {
+    padding: 0 14px 16px;
+    padding-top: 12px;
+    font-size: 0.84rem;
+    line-height: 1.55;
+  }
+
+  .faq-item {
+    border-radius: var(--radius-sm);
   }
 }
 
