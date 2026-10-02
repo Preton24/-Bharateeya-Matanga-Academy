@@ -5,7 +5,8 @@ import {
   CalendarDays, Image as ImageIcon, Phone, MapPin, ChevronDown, ChevronUp,
   MessageCircle, BookOpen, Award, Globe2, CheckCircle2, FileText,
   Clock, ShieldCheck, ChevronRight, ExternalLink, HelpCircle,
-  Building2, Landmark, Check, Send, AlertCircle
+  Building2, Landmark, Check, Send, AlertCircle,
+  Instagram, Facebook
 } from "lucide-react";
 import "./styles.css";
 import { TRANSLATIONS } from "./translations.js";
@@ -32,11 +33,6 @@ function PostageStamp({ id, name, department, stampCategory, image }) {
 
   const cleanId = id || (name ? name.replace(/[^a-zA-Z0-9]/g, "") : "stamp");
   const maskId = `stamp-mask-${cleanId}`;
-
-  const categoryLabel = stampCategory || (
-    department?.includes("Music") || department?.includes("ಸಂಗೀತ") ? "SANGITA" :
-    department?.includes("Dance") || department?.includes("ನಾಟ್ಯ") ? "NATYA" : "SEVA"
-  );
 
   return (
     <div className="stamp-frame-outer">
@@ -77,7 +73,7 @@ function PostageStamp({ id, name, department, stampCategory, image }) {
             x="14"
             y="14"
             width={w - 28}
-            height={h - 48}
+            height={h - 28}
             fill="#F2E8D5"
             stroke="#C8A45D"
             strokeWidth="1.2"
@@ -85,11 +81,11 @@ function PostageStamp({ id, name, department, stampCategory, image }) {
 
           {/* Portrait Image */}
           <image
-            href={image}
+            href={encodeURI(image)}
             x="16"
             y="16"
             width={w - 32}
-            height={h - 52}
+            height={h - 32}
             preserveAspectRatio="xMidYMid slice"
           />
 
@@ -102,32 +98,6 @@ function PostageStamp({ id, name, department, stampCategory, image }) {
               BMSSA
             </text>
           </g>
-
-          {/* Stamp Bottom Inscription */}
-          <text
-            x="22"
-            y={h - 18}
-            fontFamily="'Cormorant Garamond', Georgia, serif"
-            fontSize="10"
-            fontWeight="700"
-            letterSpacing="1"
-            fill="#65001F"
-          >
-            {categoryLabel}
-          </text>
-
-          <text
-            x={w - 22}
-            y={h - 18}
-            textAnchor="end"
-            fontFamily="'Inter', sans-serif"
-            fontSize="9"
-            fontWeight="700"
-            letterSpacing="1"
-            fill="#C8A45D"
-          >
-            ₹ 2026
-          </text>
         </g>
       </svg>
     </div>
@@ -154,7 +124,34 @@ const GALLERY_BASE = [
   { id: 13, category: "music", image: "/images/dr-ambika-shastry.jpg", fallbackImage: "/images/Dr.Ambika Shashtry.jpeg" },
   { id: 14, category: "music", image: "/images/dr-nagendra-shastry.jpg", fallbackImage: "/images/Dr.Nagendra Shastri.jpeg" },
   { id: 15, category: "heritage", image: "/images/dr-satyanarayana-pic.jpg", fallbackImage: "/images/Dr Satyanarayana pic.jpeg" },
-  { id: 16, category: "heritage", image: "/images/anil-kumar-katti.jpg", fallbackImage: "/images/Anil kumar.jpeg" }
+  { id: 16, category: "heritage", image: "/images/anil-kumar-katti.jpg", fallbackImage: "/images/Anil kumar.jpeg" },
+  // Newly Added Photos (Photo 4 to Photo 29)
+  { id: 104, category: "dance", image: "/images/photo 4.jpg", fallbackImage: "/images/photo 4.svg" },
+  { id: 105, category: "dance", image: "/images/photo 5.jpeg" },
+  { id: 106, category: "heritage", image: "/images/photo 6.jpeg" },
+  { id: 107, category: "dance", image: "/images/photo 7.jpeg" },
+  { id: 108, category: "dance", image: "/images/photo 8.jpeg" },
+  { id: 109, category: "dance", image: "/images/photo 9.jpg" },
+  { id: 110, category: "dance", image: "/images/photo 10.jpg", fallbackImage: "/images/phoyo 10.jpg" },
+  { id: 111, category: "dance", image: "/images/photo 11.jpg" },
+  { id: 112, category: "dance", image: "/images/photo 12.jpg" },
+  { id: 113, category: "dance", image: "/images/photo 13.jpg" },
+  { id: 114, category: "dance", image: "/images/photo 14.jpg" },
+  { id: 115, category: "dance", image: "/images/photo 15.jpg" },
+  { id: 116, category: "music", image: "/images/photo 16.jpg" },
+  { id: 117, category: "music", image: "/images/photo 17.jpg" },
+  { id: 118, category: "music", image: "/images/photo 18.jpg" },
+  { id: 119, category: "music", image: "/images/photo 19.jpg" },
+  { id: 120, category: "music", image: "/images/photo 20.jpg" },
+  { id: 121, category: "music", image: "/images/photo 21.jpg" },
+  { id: 122, category: "music", image: "/images/photo 22.jpg" },
+  { id: 123, category: "music", image: "/images/photo 23.jpg" },
+  { id: 124, category: "music", image: "/images/photo 24.jpg" },
+  { id: 125, category: "music", image: "/images/photo 25.jpg" },
+  { id: 126, category: "music", image: "/images/photo 26.jpg" },
+  { id: 127, category: "heritage", image: "/images/photo 27.jpg" },
+  { id: 128, category: "heritage", image: "/images/photo 28.jpg" },
+  { id: 129, category: "heritage", image: "/images/photo 29.jpg" }
 ];
 
 const ACTIVITY_ICONS = [Landmark, BookOpen, Sparkles, Users];
@@ -183,7 +180,6 @@ function App() {
   const [selectedProgramForApply, setSelectedProgramForApply] = useState(
     "Master of Performing Arts — Karnataka Sangita"
   );
-  const [showDeptContacts, setShowDeptContacts] = useState(false);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -337,7 +333,7 @@ Message: ${formData.message || 'I would like to apply for MPA Admissions 2026-27
             <button className="nav-link" onClick={() => scrollTo("about")}>{t.nav.about}</button>
             <button className="nav-link" onClick={() => scrollTo("programs")}>{t.nav.courses}</button>
             <button className="nav-link" onClick={() => scrollTo("faculty")}>{t.nav.faculty}</button>
-            <button className="nav-link" onClick={() => scrollTo("activities")}>{t.nav.activities}</button>
+            {/* <button className="nav-link" onClick={() => scrollTo("activities")}>{t.nav.activities}</button> */}
             <button className="nav-link" onClick={() => scrollTo("gallery")}>{t.nav.gallery}</button>
             <button className="nav-link" onClick={() => scrollTo("admissions")}>{t.nav.admissions}</button>
             <button className="nav-link" onClick={() => scrollTo("faqs")}>{t.nav.faqs}</button>
@@ -369,7 +365,7 @@ Message: ${formData.message || 'I would like to apply for MPA Admissions 2026-27
             </button>
 
             <button
-              className="btn btn-primary"
+              className="btn btn-primary nav-apply-btn"
               onClick={() => handleApplyClick(t.programs.list[0].title)}
             >
               {t.nav.applyBtn}
@@ -580,10 +576,10 @@ Message: ${formData.message || 'I would like to apply for MPA Admissions 2026-27
                         {t.programs.viewCourseDetailsBtn}
                       </button>
                       <button
-                        className="btn btn-primary"
+                        className="btn btn-primary program-apply-btn"
                         onClick={() => handleApplyClick(prog.title)}
                       >
-                        {t.programs.applyBtn} <ArrowRight size={16} />
+                        {t.programs.applyBtn} <ArrowRight size={15} />
                       </button>
                     </div>
                   </div>
@@ -633,7 +629,7 @@ Message: ${formData.message || 'I would like to apply for MPA Admissions 2026-27
               </div>
 
               <div style={{ display: "flex", gap: "14px", flexWrap: "wrap" }}>
-                <button className="btn btn-primary" onClick={() => scrollTo("activities")}>
+                <button className="btn btn-primary" onClick={() => scrollTo("gallery")}>
                   {t.about.exploreBtn} <ArrowRight size={17} />
                 </button>
                 <button className="btn btn-outline-maroon" onClick={() => scrollTo("legacy")}>
@@ -735,15 +731,15 @@ Message: ${formData.message || 'I would like to apply for MPA Admissions 2026-27
               </p>
             </div>
 
-            {/* Academic Leadership */}
+            {/* 1. In-house Faculty */}
             <div className="faculty-category-title">
-              <span>{t.faculty.academicHeading}</span>
+              <span>{t.faculty.inHouseHeading}</span>
             </div>
 
-            <div className="faculty-stamp-grid">
-              {t.faculty.data.academic.map((f, idx) => (
+            <div className="faculty-stamp-grid inhouse-grid">
+              {t.faculty.data.inHouse.map((f, idx) => (
                 <div
-                  key={f.name}
+                  key={f.id || f.name}
                   className="faculty-stamp-card"
                   onClick={() => setSelectedFaculty(f)}
                   role="button"
@@ -756,12 +752,14 @@ Message: ${formData.message || 'I would like to apply for MPA Admissions 2026-27
                     }
                   }}
                 >
-                  <div className="stamp-card-top-tag">
-                    <span>✦ {f.department} ✦</span>
-                  </div>
+                  {f.department && (
+                    <div className="stamp-card-top-tag">
+                      <span>✦ {f.department} ✦</span>
+                    </div>
+                  )}
 
                   <PostageStamp
-                    id={`acad-${idx}`}
+                    id={`inhouse-${idx}`}
                     name={f.name}
                     department={f.department}
                     stampCategory={f.stampCategory}
@@ -779,7 +777,99 @@ Message: ${formData.message || 'I would like to apply for MPA Admissions 2026-27
               ))}
             </div>
 
-            {/* Management & Governance */}
+            {/* 2. Revered Gurus & Eminent Scholars */}
+            <div className="faculty-category-title" style={{ marginTop: "55px" }}>
+              <span>{t.faculty.gurusHeading}</span>
+            </div>
+
+            <div className="faculty-stamp-grid">
+              {t.faculty.data.gurus.map((g, idx) => (
+                <div
+                  key={g.id || g.name}
+                  className="faculty-stamp-card"
+                  onClick={() => setSelectedFaculty(g)}
+                  role="button"
+                  tabIndex={0}
+                  aria-label={`View profile for ${g.name}`}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      setSelectedFaculty(g);
+                    }
+                  }}
+                >
+                  {g.department && (
+                    <div className="stamp-card-top-tag">
+                      <span>✦ {g.department} ✦</span>
+                    </div>
+                  )}
+
+                  <PostageStamp
+                    id={`guru-${idx}`}
+                    name={g.name}
+                    department={g.department}
+                    stampCategory={g.stampCategory}
+                    image={g.image}
+                  />
+
+                  <div className="stamp-card-info">
+                    <h3 className="stamp-faculty-name">{g.name}</h3>
+                    <span className="stamp-faculty-designation">{g.designation}</span>
+                    <div className="stamp-click-hint">
+                      <span>{t.faculty.clickHint}</span> <ArrowRight size={13} />
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* 3. Visiting Faculty */}
+            <div className="faculty-category-title" style={{ marginTop: "55px" }}>
+              <span>{t.faculty.visitingHeading}</span>
+            </div>
+
+            <div className="faculty-stamp-grid">
+              {t.faculty.data.visiting.map((v, idx) => (
+                <div
+                  key={v.id || v.name}
+                  className="faculty-stamp-card"
+                  onClick={() => setSelectedFaculty(v)}
+                  role="button"
+                  tabIndex={0}
+                  aria-label={`View profile for ${v.name}`}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      setSelectedFaculty(v);
+                    }
+                  }}
+                >
+                  {v.department && (
+                    <div className="stamp-card-top-tag">
+                      <span>✦ {v.department} ✦</span>
+                    </div>
+                  )}
+
+                  <PostageStamp
+                    id={`visit-${idx}`}
+                    name={v.name}
+                    department={v.department}
+                    stampCategory={v.stampCategory}
+                    image={v.image}
+                  />
+
+                  <div className="stamp-card-info">
+                    <h3 className="stamp-faculty-name">{v.name}</h3>
+                    <span className="stamp-faculty-designation">{v.designation}</span>
+                    <div className="stamp-click-hint">
+                      <span>{t.faculty.clickHint}</span> <ArrowRight size={13} />
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* 4. Management & Administration */}
             <div className="faculty-category-title" style={{ marginTop: "55px" }}>
               <span>{t.faculty.managementHeading}</span>
             </div>
@@ -787,7 +877,7 @@ Message: ${formData.message || 'I would like to apply for MPA Admissions 2026-27
             <div className="faculty-stamp-grid management-grid">
               {t.faculty.data.management.map((m, idx) => (
                 <div
-                  key={m.name}
+                  key={m.id || m.name}
                   className="faculty-stamp-card"
                   onClick={() => setSelectedFaculty(m)}
                   role="button"
@@ -800,9 +890,11 @@ Message: ${formData.message || 'I would like to apply for MPA Admissions 2026-27
                     }
                   }}
                 >
-                  <div className="stamp-card-top-tag">
-                    <span>✦ {m.department} ✦</span>
-                  </div>
+                  {m.department && (
+                    <div className="stamp-card-top-tag">
+                      <span>✦ {m.department} ✦</span>
+                    </div>
+                  )}
 
                   <PostageStamp
                     id={`mgmt-${idx}`}
@@ -825,7 +917,8 @@ Message: ${formData.message || 'I would like to apply for MPA Admissions 2026-27
           </div>
         </section>
 
-        {/* 9. ACTIVITIES SECTION */}
+        {/* 9. ACTIVITIES SECTION (Hidden for now as requested - kept intact) */}
+        {false && (
         <section id="activities" className="activities-section">
           <div className="container">
             <div className="section-head-center">
@@ -891,6 +984,7 @@ Message: ${formData.message || 'I would like to apply for MPA Admissions 2026-27
             </div>
           </div>
         </section>
+        )}
 
         {/* 10. GALLERY SECTION — PINTEREST MASONRY */}
         <section id="gallery" className="gallery-section">
@@ -903,29 +997,6 @@ Message: ${formData.message || 'I would like to apply for MPA Admissions 2026-27
               <div className="gold-divider">
                 <span>✦</span>
               </div>
-              <p className="section-desc" style={{ margin: "0 auto" }}>
-                {t.gallery.desc}
-              </p>
-            </div>
-
-            <div className="gallery-filters">
-              {[
-                ["all", t.gallery.filters.all],
-                ["dance", t.gallery.filters.dance],
-                ["music", t.gallery.filters.music],
-                ["heritage", t.gallery.filters.heritage]
-              ].map(([key, label]) => (
-                <button
-                  key={key}
-                  className={`filter-btn ${galleryFilter === key ? "active" : ""}`}
-                  onClick={() => {
-                    setGalleryFilter(key);
-                    setGalleryLimit(10);
-                  }}
-                >
-                  {label}
-                </button>
-              ))}
             </div>
 
             <div className="gallery-masonry">
@@ -945,19 +1016,15 @@ Message: ${formData.message || 'I would like to apply for MPA Admissions 2026-27
                   }}
                 >
                   <img
-                    src={item.image}
-                    alt={item.title}
+                    src={encodeURI(item.image)}
+                    alt={item.title || "BMSSA Gallery photo"}
                     loading="lazy"
                     onError={(e) => {
                       if (item.fallbackImage && e.currentTarget.src !== item.fallbackImage) {
-                        e.currentTarget.src = item.fallbackImage;
+                        e.currentTarget.src = encodeURI(item.fallbackImage);
                       }
                     }}
                   />
-                  <div className="gallery-masonry-overlay">
-                    <span className="gallery-masonry-tag">{item.tag}</span>
-                    <h4 className="gallery-masonry-title">{item.title}</h4>
-                  </div>
                 </div>
               ))}
             </div>
@@ -1039,14 +1106,18 @@ Message: ${formData.message || 'I would like to apply for MPA Admissions 2026-27
                         <td>{t.admissions.sidebar.qualDegree}</td>
                         <td>{t.admissions.sidebar.qualDegreeVal}</td>
                       </tr>
-                      <tr>
-                        <td>{t.admissions.sidebar.generalCat}</td>
-                        <td>{t.admissions.sidebar.generalCatVal}</td>
-                      </tr>
-                      <tr>
-                        <td>{t.admissions.sidebar.categoryCat}</td>
-                        <td>{t.admissions.sidebar.categoryCatVal}</td>
-                      </tr>
+                      {t.admissions.sidebar.generalCat && (
+                        <tr>
+                          <td>{t.admissions.sidebar.generalCat}</td>
+                          <td>{t.admissions.sidebar.generalCatVal}</td>
+                        </tr>
+                      )}
+                      {t.admissions.sidebar.categoryCat && (
+                        <tr>
+                          <td>{t.admissions.sidebar.categoryCat}</td>
+                          <td>{t.admissions.sidebar.categoryCatVal}</td>
+                        </tr>
+                      )}
                       <tr>
                         <td>{t.admissions.sidebar.seniorExamRow}</td>
                         <td>{t.admissions.sidebar.seniorExamRowVal}</td>
@@ -1067,10 +1138,63 @@ Message: ${formData.message || 'I would like to apply for MPA Admissions 2026-27
                   <p style={{ fontSize: "0.88rem", color: "var(--ink-muted)", marginBottom: "14px" }}>
                     {t.admissions.sidebar.scheduleDesc}
                   </p>
-                  <div style={{ display: "flex", gap: "10px" }}>
+
+                  {t.admissions.sidebar.dateNoLateFeeVal && (
+                    <div style={{ display: "flex", flexDirection: "column", gap: "10px", margin: "16px 0 20px" }}>
+                      <div
+                        style={{
+                          background: "#fff",
+                          border: "1px solid var(--cream-border)",
+                          borderLeft: "4px solid var(--gold-antique)",
+                          borderRadius: "8px",
+                          padding: "12px 14px",
+                          display: "flex",
+                          flexDirection: "column",
+                          gap: "4px",
+                          boxShadow: "0 2px 6px rgba(0,0,0,0.03)"
+                        }}
+                      >
+                        <span style={{ fontSize: "0.78rem", textTransform: "uppercase", letterSpacing: "0.04em", color: "var(--ink-muted)", fontWeight: 600 }}>
+                          {t.admissions.sidebar.dateNoLateFeeLabel}
+                        </span>
+                        <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                          <CalendarDays size={18} style={{ color: "var(--gold-antique)", flexShrink: 0 }} />
+                          <span style={{ fontSize: "1.1rem", fontWeight: 700, color: "var(--maroon-darkest)", fontFamily: "var(--font-serif)" }}>
+                            {t.admissions.sidebar.dateNoLateFeeVal}
+                          </span>
+                        </div>
+                      </div>
+
+                      <div
+                        style={{
+                          background: "#fff",
+                          border: "1px solid var(--cream-border)",
+                          borderLeft: "4px solid var(--maroon-deep)",
+                          borderRadius: "8px",
+                          padding: "12px 14px",
+                          display: "flex",
+                          flexDirection: "column",
+                          gap: "4px",
+                          boxShadow: "0 2px 6px rgba(0,0,0,0.03)"
+                        }}
+                      >
+                        <span style={{ fontSize: "0.78rem", textTransform: "uppercase", letterSpacing: "0.04em", color: "var(--ink-muted)", fontWeight: 600 }}>
+                          {t.admissions.sidebar.dateLateFeeLabel}
+                        </span>
+                        <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                          <Clock size={18} style={{ color: "var(--maroon-deep)", flexShrink: 0 }} />
+                          <span style={{ fontSize: "1.1rem", fontWeight: 700, color: "var(--maroon-deep)", fontFamily: "var(--font-serif)" }}>
+                            {t.admissions.sidebar.dateLateFeeVal}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
                     <button
                       className="btn btn-primary"
-                      style={{ flex: 1 }}
+                      style={{ flex: "1 1 140px" }}
                       onClick={() => handleApplyClick(t.programs.list[0].title)}
                     >
                       {t.admissions.sidebar.preRegisterBtn}
@@ -1078,10 +1202,11 @@ Message: ${formData.message || 'I would like to apply for MPA Admissions 2026-27
                     <a
                       href={`https://wa.me/918939689737?text=${encodeURIComponent(
                         lang === "kn"
-                          ? "ನಮಸ್ಕಾರ ಬಿ.ಎಂ.ಎಸ್.ಎಸ್.ಎ, 2026-27ರ ಪ್ರವೇಶ ದಿನಾಂಕಗಳ ಕುರಿತು ಮಾಹಿತಿ ಕಳುಹಿಸಿ."
-                          : "Hello BMSSA, please notify me when the 2026-27 admission dates are published."
+                          ? "ನಮಸ್ಕಾರ ಬಿ.ಎಂ.ಎಸ್.ಎಸ್.ಎ, 2026-27ರ ಪ್ರವೇಶ ದಿನಾಂಕಗಳ ಕುರಿತು (ಅರ್ಜಿ ಕೊನೆಯ ದಿನಾಂಕ: ಅಕ್ಟೋಬರ್ ೧೬ / ೩೧, ೨೦೨೬) ಮಾಹಿತಿ ಕಳುಹಿಸಿ."
+                          : "Hello BMSSA, I would like to inquire about the MPA 2026-27 admissions (Application deadlines: Oct 16 / Oct 31, 2026)."
                       )}`}
                       className="btn btn-whatsapp"
+                      style={{ flex: "1 1 140px" }}
                       target="_blank"
                       rel="noreferrer"
                     >
@@ -1176,29 +1301,83 @@ Message: ${formData.message || 'I would like to apply for MPA Admissions 2026-27
                 <div className="contact-detail-text">
                   <small>{t.contact.locationsHeading}</small>
                   <strong>{t.contact.locationsVal}</strong>
-                  <p>{t.contact.locationsSub}</p>
+                  {t.contact.locationsSub && <p>{t.contact.locationsSub}</p>}
+                  {t.contact.locationsMapUrl && (
+                    <a
+                      href={t.contact.locationsMapUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="contact-map-btn"
+                    >
+                      <MapPin size={14} />
+                      <span>{t.contact.viewOnMapsBtn}</span>
+                      <ExternalLink size={13} />
+                    </a>
+                  )}
                 </div>
               </div>
 
-              <div className="dept-contacts-drawer">
-                <div
-                  style={{ display: "flex", justifyContent: "space-between", alignItems: "center", cursor: "pointer" }}
-                  onClick={() => setShowDeptContacts(!showDeptContacts)}
-                >
-                  <h4>{t.contact.deptContactsTitle}</h4>
-                  <ChevronDown size={18} style={{ transform: showDeptContacts ? "rotate(180deg)" : "none", transition: "0.2s" }} />
+              {/* Campus Location Map */}
+              <div className="contact-map-container">
+                <div className="contact-map-header">
+                  <span className="contact-map-title">
+                    <MapPin size={15} /> {t.contact.campusMapTitle}
+                  </span>
+                  <a
+                    href={t.contact.locationsMapUrl || "https://maps.app.goo.gl/UbYCYNVFAS16gXTU7"}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="contact-map-ext-link"
+                  >
+                    {t.contact.getDirectionsBtn} <ExternalLink size={13} />
+                  </a>
                 </div>
-                {showDeptContacts && (
-                  <div style={{ marginTop: "12px" }}>
-                    {t.contact.deptContacts.map((c, i) => (
-                      <div key={i} className="dept-row">
-                        <span>{c.name}</span>
-                        <a href={`tel:${c.phone.replace(/[^0-9]/g, "")}`}>{c.phone}</a>
-                      </div>
-                    ))}
-                  </div>
-                )}
+                <div className="contact-map-frame-wrapper">
+                  <iframe
+                    title="Bharatiya Matanga Samajik Samskritik Academy Location Map"
+                    src="https://www.openstreetmap.org/export/embed.html?bbox=77.509,12.977,77.518,12.985&layer=mapnik&marker=12.98108,77.51386"
+                    className="contact-map-iframe"
+                    loading="lazy"
+                  />
+                </div>
               </div>
+
+              {/* Social Channels Below Map */}
+              <div className="contact-social-box">
+                <span className="contact-social-label">
+                  <Sparkles size={14} /> {t.contact.socialChannelsHeading}
+                </span>
+                <div className="contact-social-actions">
+                  <a
+                    href="https://www.instagram.com/bmssacademy?stkn=MXY3ZGJiOWF3YWVzZw=="
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="contact-social-pill contact-social-pill-instagram"
+                    aria-label="Follow BMSSA on Instagram"
+                  >
+                    <div className="social-pill-icon">
+                      <Instagram size={17} />
+                    </div>
+                    <span>{t.contact.instagramLabel}</span>
+                    <ExternalLink size={12} className="social-pill-arrow" />
+                  </a>
+
+                  <a
+                    href="https://www.facebook.com/share/18dsJKKJid/?mibextid=wwXIfr"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="contact-social-pill contact-social-pill-facebook"
+                    aria-label="Follow BMSSA on Facebook"
+                  >
+                    <div className="social-pill-icon">
+                      <Facebook size={17} />
+                    </div>
+                    <span>{t.contact.facebookLabel}</span>
+                    <ExternalLink size={12} className="social-pill-arrow" />
+                  </a>
+                </div>
+              </div>
+
             </div>
 
             {/* Contact Form */}
@@ -1324,7 +1503,7 @@ Message: ${formData.message || 'I would like to apply for MPA Admissions 2026-27
                   title="BMSSA on Facebook"
                   aria-label="Facebook"
                 >
-                  f
+                  <Facebook size={18} />
                 </a>
                 <a
                   href="https://www.instagram.com/bmssacademy?stkn=MXY3ZGJiOWF3YWVzZw=="
@@ -1334,7 +1513,7 @@ Message: ${formData.message || 'I would like to apply for MPA Admissions 2026-27
                   title="BMSSA on Instagram"
                   aria-label="Instagram"
                 >
-                  📷
+                  <Instagram size={18} />
                 </a>
               </div>
             </div>
@@ -1354,7 +1533,7 @@ Message: ${formData.message || 'I would like to apply for MPA Admissions 2026-27
               <h4>{t.footer.connectTitle}</h4>
               <ul className="footer-links">
                 <li><button onClick={() => scrollTo("admissions")}>{t.nav.admissions}</button></li>
-                <li><button onClick={() => scrollTo("activities")}>{t.nav.activities}</button></li>
+                {/* <li><button onClick={() => scrollTo("activities")}>{t.nav.activities}</button></li> */}
                 <li><button onClick={() => scrollTo("gallery")}>{t.nav.gallery}</button></li>
                 <li><button onClick={() => scrollTo("faqs")}>{t.nav.faqs}</button></li>
                 <li><button onClick={() => scrollTo("contact")}>{t.nav.contact}</button></li>
@@ -1363,7 +1542,7 @@ Message: ${formData.message || 'I would like to apply for MPA Admissions 2026-27
 
             <div className="footer-col">
               <h4>{t.footer.inquiriesTitle}</h4>
-              <p style={{ fontSize: "0.85rem", color: "#D2C0C3", marginBottom: "12px" }}>
+              <p style={{ fontSize: "0.85rem", color: "#D2C0C3", marginBottom: "8px" }}>
                 {t.footer.inquiriesSub}
               </p>
               <a
@@ -1372,6 +1551,25 @@ Message: ${formData.message || 'I would like to apply for MPA Admissions 2026-27
               >
                 +91 89396 89737
               </a>
+              <div style={{ marginTop: "12px", fontSize: "0.82rem", color: "#D2C0C3", lineHeight: "1.4" }}>
+                <p style={{ margin: 0 }}>156, 1st I Main Rd, 1st Block, 2nd Stage, Nagarbhavi, Bengaluru - 560072</p>
+                <a
+                  href="https://maps.app.goo.gl/UbYCYNVFAS16gXTU7"
+                  target="_blank"
+                  rel="noreferrer"
+                  style={{
+                    color: "var(--gold-light)",
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "4px",
+                    marginTop: "6px",
+                    fontWeight: 600,
+                    fontSize: "0.78rem"
+                  }}
+                >
+                  <MapPin size={12} /> Google Maps <ExternalLink size={11} />
+                </a>
+              </div>
             </div>
           </div>
 
@@ -1399,8 +1597,7 @@ Message: ${formData.message || 'I would like to apply for MPA Admissions 2026-27
           <MessageCircle size={24} />
         </a>
         <button
-          className="btn btn-primary"
-          style={{ padding: "8px 18px", fontSize: "0.85rem" }}
+          className="btn btn-primary floating-apply-btn"
           onClick={() => handleApplyClick(t.programs.list[0].title)}
         >
           {t.floating.applyBtn}
@@ -1467,12 +1664,8 @@ Message: ${formData.message || 'I would like to apply for MPA Admissions 2026-27
                   <span className="meta-val">{courseModal.admissionBatch}</span>
                 </div>
                 <div className="meta-item">
-                  <span className="meta-label">{t.modals.genEligibility}</span>
-                  <span className="meta-val">{courseModal.generalPercent}</span>
-                </div>
-                <div className="meta-item">
-                  <span className="meta-label">{t.modals.catEligibility}</span>
-                  <span className="meta-val">{courseModal.categoryPercent}</span>
+                  <span className="meta-label">{t.modals.eligibility || t.programs.eligibilityLabel}</span>
+                  <span className="meta-val">{courseModal.eligibility}</span>
                 </div>
               </div>
 
@@ -1633,11 +1826,11 @@ Message: ${formData.message || 'I would like to apply for MPA Admissions 2026-27
             </button>
             <div style={{ background: "#0c0407", display: "flex", justifyContent: "center", alignItems: "center", minHeight: "260px" }}>
               <img
-                src={lightboxItem.image}
+                src={encodeURI(lightboxItem.image)}
                 alt={lightboxItem.title}
                 onError={(e) => {
                   if (lightboxItem.fallbackImage && e.currentTarget.src !== lightboxItem.fallbackImage) {
-                    e.currentTarget.src = lightboxItem.fallbackImage;
+                    e.currentTarget.src = encodeURI(lightboxItem.fallbackImage);
                   }
                 }}
                 style={{ width: "100%", maxHeight: "78vh", objectFit: "contain" }}
@@ -1699,13 +1892,13 @@ Message: ${formData.message || 'I would like to apply for MPA Admissions 2026-27
                   {t.modals.aboutLineage}
                 </div>
                 <p className="faculty-modal-bio">
-                  {selectedFaculty.fullBio || selectedFaculty.bio}
+                  {selectedFaculty.fullBio || selectedFaculty.bio || selectedFaculty.shortBio}
                 </p>
 
                 {selectedFaculty.highlights && selectedFaculty.highlights.length > 0 && (
                   <>
                     <div className="faculty-modal-section-title" style={{ marginTop: "18px" }}>
-                      {t.modals.accoladesRoles}
+                      {selectedFaculty.accoladesTitle || t.modals.accoladesRoles}
                     </div>
                     <ul className="faculty-modal-highlights">
                       {selectedFaculty.highlights.map((h, idx) => (
