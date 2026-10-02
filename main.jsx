@@ -218,6 +218,18 @@ function App() {
     setMobileMenuOpen(false);
   };
 
+  // Subtle parallax effect for hero artwork
+  const [heroParallax, setHeroParallax] = useState({ x: 0, y: 0 });
+  const handleHeroMouseMove = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
+    const y = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
+    setHeroParallax({ x: Math.max(-1, Math.min(1, x)), y: Math.max(-1, Math.min(1, y)) });
+  };
+  const handleHeroMouseLeave = () => {
+    setHeroParallax({ x: 0, y: 0 });
+  };
+
   const handleApplyClick = (programTitle) => {
     if (programTitle) setSelectedProgramForApply(programTitle);
     setApplyModalOpen(true);
@@ -383,77 +395,92 @@ Message: ${formData.message || 'I would like to apply for MPA Admissions 2026-27
 
       <main>
         {/* ==================================================================
-            3. HERO SECTION — ORNAMENTAL INDIAN ARCH ARCHITECTURE
+            3. HERO SECTION — ARTWORK-BASED CULTURAL HERITAGE EXPERIENCE
             ================================================================== */}
-        <section id="home" className="hero-section">
-          <div className="hero-container">
-            <div className="arch-frame">
-              <div className="arch-crown-wrap">
-                <svg
-                  className="arch-crown-svg"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 900 240"
-                  preserveAspectRatio="none"
-                >
-                  <defs>
-                    <linearGradient id="heroMaroonGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                      <stop offset="0%" stopColor="#78062B" />
-                      <stop offset="30%" stopColor="#65001F" />
-                      <stop offset="100%" stopColor="#500219" />
-                    </linearGradient>
-                  </defs>
-                  <path
-                    d="M 450 16 C 442 32, 432 44, 422 52 A 27.9 27.9 0 0 0 384 76 A 35.1 35.1 0 0 0 336 106 A 42.3 42.3 0 0 0 278 142 A 49.6 49.6 0 0 0 210 184 A 53.8 53.8 0 0 0 134 226 A 52.8 52.8 0 0 0 50 240 L 850 240 A 52.8 52.8 0 0 0 766 226 A 53.8 53.8 0 0 0 690 184 A 49.6 49.6 0 0 0 622 142 A 42.3 42.3 0 0 0 564 106 A 35.1 35.1 0 0 0 516 76 A 27.9 27.9 0 0 0 478 52 C 468 44, 458 32, 450 16 Z"
-                    fill="url(#heroMaroonGrad)"
-                    stroke="#C8A45D"
-                    strokeWidth="2.5"
+        {/* 3. HERO SECTION — Fullscreen Artwork Heritage Experience */}
+        <section
+          id="home"
+          className="hero-section hero-fullscreen-section"
+          onMouseMove={handleHeroMouseMove}
+          onMouseLeave={handleHeroMouseLeave}
+          style={{
+            "--hero-px": heroParallax.x,
+            "--hero-py": heroParallax.y
+          }}
+        >
+          {/* Full-width Responsive Viewport spanning edge-to-edge */}
+          <div className="hero-fullscreen-viewport">
+            {/* Coordinate-Locked Artwork Stage Canvas */}
+            <div className="hero-art-canvas">
+              {/* Layer 1: Background Scenery (Sunrise, river, hills, temple, courtyard) */}
+              <img
+                src="/images/matanga-hero-bg.jpg"
+                alt="Sacred landscape at sunrise"
+                className="hero-art-layer hero-art-bg"
+              />
+
+              {/* Layer 2: Rotating Sacred Mandala Chakra Wheel (Rotates BEHIND Sage) */}
+              <div className="hero-chakra-layer" aria-hidden="true">
+                <div className="hero-chakra-spinner">
+                  <img
+                    src="/images/matanga-chakra-wheel.png"
+                    alt="Sacred rotating mandala chakra"
+                    className="hero-chakra-disc-img"
                   />
-                  <path
-                    d="M 450 16 C 442 32, 432 44, 422 52 A 27.9 27.9 0 0 0 384 76 A 35.1 35.1 0 0 0 336 106 A 42.3 42.3 0 0 0 278 142 A 49.6 49.6 0 0 0 210 184 A 53.8 53.8 0 0 0 134 226 A 52.8 52.8 0 0 0 50 240 L 850 240 A 52.8 52.8 0 0 0 766 226 A 53.8 53.8 0 0 0 690 184 A 49.6 49.6 0 0 0 622 142 A 42.3 42.3 0 0 0 564 106 A 35.1 35.1 0 0 0 516 76 A 27.9 27.9 0 0 0 478 52 C 468 44, 458 32, 450 16 Z"
-                    fill="none"
-                    stroke="#E6CCA0"
-                    strokeWidth="1"
-                    strokeOpacity="0.4"
-                    transform="translate(450, 160) scale(0.96) translate(-450, -160)"
-                  />
-                  <g transform="translate(450, 12)">
-                    <circle cx="0" cy="0" r="3.5" fill="#FFE4A3" />
-                    <polygon points="0,-8 3,-2 0,0 -3,-2" fill="#C8A45D" />
-                  </g>
-                </svg>
+                </div>
+                {/* Subtle golden ambient aura pulse */}
+                <div className="hero-chakra-glow"></div>
               </div>
 
-              <div className="arch-bracket-left"></div>
-              <div className="arch-bracket-right"></div>
-              <div className="arch-inner-border"></div>
-              <div className="corner-flourish tl"></div>
-              <div className="corner-flourish tr"></div>
-              <div className="corner-flourish bl"></div>
-              <div className="corner-flourish br"></div>
+              {/* Layer 3: Sacred Upward Yantra (Stationary Above Sage's Head) */}
+              <img
+                src="/images/matanga-sacred-yantra.png"
+                alt="Sacred Yantra"
+                className="hero-art-layer hero-art-yantra"
+                aria-hidden="true"
+              />
 
-              <div className="arch-content">
-                <div className="hero-eyebrow">
-                  <span className="eyebrow-diamond">✦</span>
-                  <span>{t.hero.badge}</span>
-                  <span className="eyebrow-diamond">✦</span>
-                </div>
+              {/* Layer 4: Stationary Foreground Subject (Sage Matanga with Veena) */}
+              <img
+                src="/images/matanga-hero-subject.png"
+                alt="Sage Matanga seated with Veena"
+                className="hero-art-layer hero-art-subject"
+              />
+            </div>
 
-                <h1 className="hero-headline">
-                  {t.hero.headlineLead}
-                  <span className="hero-italic">{t.hero.headlineHighlight}</span>
-                </h1>
+            {/* Layer 5: Natural Golden Vignette & Bottom Section Blend */}
+            <div className="hero-ambient-vignette" aria-hidden="true"></div>
+            <div className="hero-bottom-blend" aria-hidden="true"></div>
 
-                <p className="hero-desc">{t.hero.desc}</p>
+            {/* Layer 6: Minimal, Elegant Hero Content Overlay */}
+            <div className="hero-content-stage">
+              <div className="hero-content-container">
+                {/* Top Sky Group: Badges + Minimal Elegant Headline */}
+                <div className="hero-header-group">
+                  <div className="hero-top-strip">
+                    <div className="hero-eyebrow-badge">
+                      <span className="eyebrow-gem">✦</span>
+                      <span>{t.hero.badge}</span>
+                      <span className="eyebrow-gem">✦</span>
+                    </div>
 
-                <div className="hero-recognition-wrap">
-                  <div className="hero-recognition-pill">
-                    <Award size={15} />
-                    <span>{t.hero.recognitionPill}</span>
+                    <div className="hero-recognition-tag">
+                      <Award size={13} />
+                      <span>{t.hero.recognitionPill}</span>
+                    </div>
+                  </div>
+
+                  <div className="hero-headline-block">
+                    <h1 className="hero-refined-headline">
+                      <span className="hero-headline-lead">{t.hero.headlineLead}</span>{" "}
+                      <span className="hero-serif-highlight">{t.hero.headlineHighlight}</span>
+                    </h1>
                   </div>
                 </div>
 
-                <div className="hero-batch-wrapper">
-                  <div className="hero-batch-pill">
+                {/* Bottom Terrace: Admission Status, CTAs, & Assistance */}
+                <div className="hero-bottom-terrace">
+                  <div className="hero-batch-pill hero-batch-pill-artwork">
                     <span className="pulse-dot"></span>
                     <div className="hero-batch-text">
                       <span className="hero-batch-line hero-batch-line-primary">
@@ -464,32 +491,33 @@ Message: ${formData.message || 'I would like to apply for MPA Admissions 2026-27
                       </span>
                     </div>
                   </div>
-                </div>
 
-                <div className="hero-actions">
-                  <button className="btn btn-gold" onClick={() => scrollTo("programs")}>
-                    {t.hero.exploreBtn} <ArrowRight size={17} />
-                  </button>
-                  <button className="btn btn-outline-gold" onClick={() => scrollTo("about")}>
-                    {t.hero.discoverBtn}
-                  </button>
-                </div>
+                  <div className="hero-actions hero-actions-artwork">
+                    <button className="btn btn-gold btn-hero-gold" onClick={() => scrollTo("programs")}>
+                      {t.hero.exploreBtn} <ArrowRight size={16} />
+                    </button>
+                    <button className="btn btn-outline-gold btn-hero-outline" onClick={() => scrollTo("about")}>
+                      {t.hero.discoverBtn}
+                    </button>
+                  </div>
 
-                <div className="hero-contact-strip">
-                  <a href="tel:918939689737">
-                    <Phone size={14} /> {t.hero.deskLabel}: +91 89396 89737
-                  </a>
-                  <a
-                    href={`https://wa.me/918939689737?text=${encodeURIComponent(
-                      lang === "kn"
-                        ? "ನಮಸ್ಕಾರ ಬಿ.ಎಂ.ಎಸ್.ಎಸ್.ಎ, 2026-27ರ ಪ್ರವೇಶದ ಕುರಿತು ವಿಚಾರಿಸಲು ಇಚ್ಛಿಸುತ್ತೇನೆ."
-                        : "Hello BMSSA, I would like to enquire about Admissions 2026-27"
-                    )}`}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <MessageCircle size={14} /> {t.hero.whatsappLabel}
-                  </a>
+                  <div className="hero-contact-strip hero-contact-strip-artwork">
+                    <a href="tel:918939689737">
+                      <Phone size={13} /> {t.hero.deskLabel}: +91 89396 89737
+                    </a>
+                    <span className="contact-separator">•</span>
+                    <a
+                      href={`https://wa.me/918939689737?text=${encodeURIComponent(
+                        lang === "kn"
+                          ? "ನಮಸ್ಕಾರ ಬಿ.ಎಂ.ಎಸ್.ಎಸ್.ಎ, 2026-27ರ ಪ್ರವೇಶದ ಕುರಿತು ವಿಚಾರಿಸಲು ಇಚ್ಛಿಸುತ್ತೇನೆ."
+                          : "Hello BMSSA, I would like to enquire about Admissions 2026-27"
+                      )}`}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <MessageCircle size={13} /> {t.hero.whatsappLabel}
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
