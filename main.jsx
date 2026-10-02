@@ -731,8 +731,54 @@ Message: ${formData.message || 'I would like to apply for MPA Admissions 2026-27
               </p>
             </div>
 
-            {/* 1. In-house Faculty */}
+            {/* 1. Management & Administration */}
             <div className="faculty-category-title">
+              <span>{t.faculty.managementHeading}</span>
+            </div>
+
+            <div className="faculty-stamp-grid management-grid">
+              {t.faculty.data.management.map((m, idx) => (
+                <div
+                  key={m.id || m.name}
+                  className="faculty-stamp-card"
+                  onClick={() => setSelectedFaculty(m)}
+                  role="button"
+                  tabIndex={0}
+                  aria-label={`View profile for ${m.name}`}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      setSelectedFaculty(m);
+                    }
+                  }}
+                >
+                  {m.department && (
+                    <div className="stamp-card-top-tag">
+                      <span>✦ {m.department} ✦</span>
+                    </div>
+                  )}
+
+                  <PostageStamp
+                    id={`mgmt-${idx}`}
+                    name={m.name}
+                    department={m.department}
+                    stampCategory={m.stampCategory}
+                    image={m.image}
+                  />
+
+                  <div className="stamp-card-info">
+                    <h3 className="stamp-faculty-name">{m.name}</h3>
+                    <span className="stamp-faculty-designation">{m.designation}</span>
+                    <div className="stamp-click-hint">
+                      <span>{t.faculty.clickHint}</span> <ArrowRight size={13} />
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* 2. In-house Faculty */}
+            <div className="faculty-category-title" style={{ marginTop: "55px" }}>
               <span>{t.faculty.inHouseHeading}</span>
             </div>
 
@@ -869,51 +915,6 @@ Message: ${formData.message || 'I would like to apply for MPA Admissions 2026-27
               ))}
             </div>
 
-            {/* 4. Management & Administration */}
-            <div className="faculty-category-title" style={{ marginTop: "55px" }}>
-              <span>{t.faculty.managementHeading}</span>
-            </div>
-
-            <div className="faculty-stamp-grid management-grid">
-              {t.faculty.data.management.map((m, idx) => (
-                <div
-                  key={m.id || m.name}
-                  className="faculty-stamp-card"
-                  onClick={() => setSelectedFaculty(m)}
-                  role="button"
-                  tabIndex={0}
-                  aria-label={`View profile for ${m.name}`}
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter" || e.key === " ") {
-                      e.preventDefault();
-                      setSelectedFaculty(m);
-                    }
-                  }}
-                >
-                  {m.department && (
-                    <div className="stamp-card-top-tag">
-                      <span>✦ {m.department} ✦</span>
-                    </div>
-                  )}
-
-                  <PostageStamp
-                    id={`mgmt-${idx}`}
-                    name={m.name}
-                    department={m.department}
-                    stampCategory={m.stampCategory}
-                    image={m.image}
-                  />
-
-                  <div className="stamp-card-info">
-                    <h3 className="stamp-faculty-name">{m.name}</h3>
-                    <span className="stamp-faculty-designation">{m.designation}</span>
-                    <div className="stamp-click-hint">
-                      <span>{t.faculty.clickHint}</span> <ArrowRight size={13} />
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
           </div>
         </section>
 
@@ -1363,7 +1364,7 @@ Message: ${formData.message || 'I would like to apply for MPA Admissions 2026-27
                   </a>
 
                   <a
-                    href="https://www.facebook.com/share/18dsJKKJid/?mibextid=wwXIfr"
+                    href="https://www.facebook.com/profile.php?id=61594592056645"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="contact-social-pill contact-social-pill-facebook"
@@ -1496,7 +1497,7 @@ Message: ${formData.message || 'I would like to apply for MPA Admissions 2026-27
               </div>
               <div className="footer-social-row">
                 <a
-                  href="https://www.facebook.com/share/18dsJKKJid/?mibextid=wwXIfr"
+                  href="https://www.facebook.com/profile.php?id=61594592056645"
                   target="_blank"
                   rel="noreferrer"
                   className="footer-social-btn"

@@ -3065,6 +3065,36 @@ html[lang="kn"] .nav-link {
     bottom: 16px;
     right: 16px;
   }
+
+  /* Scaled-down tags to prevent obscuring photos on mobile/tablets */
+  .program-tag {
+    top: 10px;
+    left: 10px;
+    padding: 3px 10px;
+    font-size: 0.66rem;
+    letter-spacing: 0.06em;
+  }
+
+  .legacy-tag {
+    top: 10px;
+    left: 10px;
+    padding: 3px 10px;
+    font-size: 0.66rem;
+    letter-spacing: 0.06em;
+  }
+
+  .stamp-card-top-tag {
+    font-size: 0.64rem;
+    letter-spacing: 0.08em;
+    margin-bottom: 10px;
+    line-height: 1.25;
+    padding: 0 4px;
+    text-align: center;
+  }
+
+  .faculty-stamp-card {
+    padding: 18px 14px 20px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -3093,6 +3123,35 @@ html[lang="kn"] .nav-link {
   .lang-switcher-btn {
     padding: 5px 9px;
     font-size: 0.78rem;
+  }
+
+  /* Compact tag styling specifically tuned for small phone screens */
+  .program-tag {
+    top: 8px;
+    left: 8px;
+    padding: 2.5px 8px;
+    font-size: 0.60rem;
+    letter-spacing: 0.05em;
+  }
+
+  .legacy-tag {
+    top: 8px;
+    left: 8px;
+    padding: 2.5px 8px;
+    font-size: 0.60rem;
+    letter-spacing: 0.05em;
+  }
+
+  .stamp-card-top-tag {
+    font-size: 0.58rem;
+    letter-spacing: 0.05em;
+    margin-bottom: 8px;
+    line-height: 1.2;
+    padding: 0 2px;
+  }
+
+  .faculty-stamp-card {
+    padding: 14px 10px 16px;
   }
 }
 
