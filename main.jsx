@@ -115,7 +115,6 @@ const GALLERY_BASE = [
   { id: 4, category: "heritage", image: "/images/dr-satyanarayana-2.jpg", fallbackImage: "/images/Dr satyanarayana 2.JPG" },
   { id: 5, category: "dance", image: "/images/photo-3.jpg", fallbackImage: "/images/photo 3.jpg" },
   { id: 6, category: "dance", image: "/images/solo-2.jpg", fallbackImage: "/images/solo 2.jpeg" },
-  { id: 7, category: "dance", image: "/images/solo-pic-3.png", fallbackImage: "/images/solo pic 3.png" },
   { id: 8, category: "dance", image: "/images/ranjana-nagaraj.jpg", fallbackImage: "/images/Ranjana.jpeg" },
   { id: 9, category: "dance", image: "/images/photo-1.jpg", fallbackImage: "/images/photo 1.jpeg" },
   { id: 10, category: "music", image: "/images/dr-nandakumar.jpg", fallbackImage: "/images/Dr. NandaKumar.JPG" },
@@ -1853,23 +1852,17 @@ Message: ${formData.message || 'I would like to apply for MPA Admissions 2026-27
             >
               <X size={20} />
             </button>
-            <div style={{ background: "#0c0407", display: "flex", justifyContent: "center", alignItems: "center", minHeight: "260px" }}>
+            <div style={{ background: "#0c0407", display: "flex", justifyContent: "center", alignItems: "center" }}>
               <img
                 src={encodeURI(lightboxItem.image)}
-                alt={lightboxItem.title}
+                alt={lightboxItem.title || "Gallery image"}
                 onError={(e) => {
                   if (lightboxItem.fallbackImage && e.currentTarget.src !== lightboxItem.fallbackImage) {
                     e.currentTarget.src = encodeURI(lightboxItem.fallbackImage);
                   }
                 }}
-                style={{ width: "100%", maxHeight: "78vh", objectFit: "contain" }}
+                style={{ width: "100%", maxHeight: "85vh", objectFit: "contain", display: "block" }}
               />
-            </div>
-            <div style={{ padding: "20px", background: "var(--ivory-base)" }}>
-              <span className="gallery-tag">{lightboxItem.tag}</span>
-              <h4 style={{ fontFamily: "var(--font-serif)", fontSize: "1.35rem", color: "var(--maroon-darkest)", marginTop: "4px" }}>
-                {lightboxItem.title}
-              </h4>
             </div>
           </div>
         </div>

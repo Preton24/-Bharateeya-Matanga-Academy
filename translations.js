@@ -639,11 +639,6 @@ export const TRANSLATIONS = {
           tag: "Bharatanatya Solo"
         },
         {
-          id: 7,
-          title: "Bharatanatyam Live Sabha Performance",
-          tag: "Bharatanatya Stage"
-        },
-        {
           id: 8,
           title: "Guru Vidushi Ranjana Nagaraj — Classical Natyashastra Abhinaya & Nritta",
           tag: "Faculty & Artists"
@@ -1635,11 +1630,6 @@ export const TRANSLATIONS = {
           id: 6,
           title: "ಭರತನಾಟ್ಯ ಪ್ರಸ್ತುತಿ — ಶಿಲ್ಪಸದೃಶ ಕರಣ ಭಂಗಿ",
           tag: "ಭರತನಾಟ್ಯ ಏಕವ್ಯಕ್ತಿ"
-        },
-        {
-          id: 7,
-          title: "ಭರತನಾಟ್ಯ ಸಭಾ ಪ್ರದರ್ಶನ",
-          tag: "ಭರತನಾಟ್ಯ ರಂಗ"
         },
         {
           id: 8,
