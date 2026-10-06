@@ -626,7 +626,7 @@ html[lang="kn"] .nav-link {
 }
 
 /* Coordinate-Locked Artwork Stage Canvas:
-   Maintains exact 1024:682 aspect ratio, scales to cover viewport edge-to-edge seamlessly */
+   Maintains exact 1672:941 aspect ratio matching the background and subject layers */
 .hero-art-canvas {
   position: absolute;
   top: 50%;
@@ -636,7 +636,7 @@ html[lang="kn"] .nav-link {
   min-height: 100%;
   width: auto;
   height: auto;
-  aspect-ratio: 1024 / 682;
+  aspect-ratio: 1672 / 941;
   pointer-events: none;
   user-select: none;
 }
@@ -652,41 +652,66 @@ html[lang="kn"] .nav-link {
   user-select: none;
 }
 
-/* Layer 1: Background Scenery with subtle parallax */
+/* Layer 1: Background Scenery - static background */
 .hero-art-bg {
   z-index: 1;
-  transform: translate(calc(var(--hero-px, 0) * -7px), calc(var(--hero-py, 0) * -4px)) scale(1.02);
-  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
-  will-change: transform;
+  transform: none;
 }
 
-/* Layer 2: Rotating Chakra Layer (Rotates BEHIND Sage Matanga) */
-.hero-chakra-layer {
+/* Layer 2A: Rotating Mandala Layer (Down in its original backdrop location) */
+.hero-mandala-layer {
   position: absolute;
   top: 43.84%;
   left: 50%;
-  width: 40.234%;
+  width: 38.5%;
   aspect-ratio: 1 / 1;
-  transform: translate(calc(-50% + var(--hero-px, 0) * -2.5px), calc(-50% + var(--hero-py, 0) * -1.5px));
-  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transform: translate(-50%, -50%);
   z-index: 2;
   pointer-events: none;
   user-select: none;
 }
 
-.hero-chakra-spinner {
+.hero-mandala-spinner {
   width: 100%;
   height: 100%;
-  animation: heroChakraSpin 75s linear infinite;
+  animation: heroChakraSpin 85s linear infinite;
   transform-origin: center center;
   will-change: transform;
 }
 
-.hero-chakra-disc-img {
+.hero-mandala-disc-img {
   width: 100%;
   height: 100%;
   display: block;
-  filter: drop-shadow(0 0 20px rgba(255, 195, 80, 0.4));
+  filter: drop-shadow(0 0 24px rgba(255, 195, 80, 0.45));
+}
+
+/* Layer 2B: Rotating Golden Triforce Emblem (Directly Behind Sage Matanga's Head) */
+.hero-triforce-layer {
+  position: absolute;
+  top: 34%;
+  left: 50%;
+  width: 17.5%;
+  aspect-ratio: 1 / 1;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  pointer-events: none;
+  user-select: none;
+}
+
+.hero-triforce-spinner {
+  width: 100%;
+  height: 100%;
+  animation: heroChakraSpin 65s linear infinite;
+  transform-origin: center center;
+  will-change: transform;
+}
+
+.hero-triforce-disc-img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  filter: drop-shadow(0 0 16px rgba(255, 215, 100, 0.7));
 }
 
 @keyframes heroChakraSpin {
@@ -714,21 +739,11 @@ html[lang="kn"] .nav-link {
   100% { transform: scale(1.05); opacity: 0.95; }
 }
 
-/* Layer 3: Sacred Yantra Triangle (Above Head) */
-.hero-art-yantra {
-  z-index: 3;
-  transform: translate(calc(var(--hero-px, 0) * 1.5px), calc(var(--hero-py, 0) * 1px));
-  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
-  pointer-events: none;
-}
-
-/* Layer 4: Stationary Foreground Subject (Sage Matanga + Veena) */
+/* Layer 4: Stationary Foreground Subject (Sage Matanga + Veena) - Static */
 .hero-art-subject {
   z-index: 4;
-  transform: translate(calc(var(--hero-px, 0) * 4.5px), calc(var(--hero-py, 0) * 2.8px));
-  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
-  will-change: transform;
-  filter: drop-shadow(0 6px 24px rgba(35, 10, 5, 0.28));
+  transform: none;
+  filter: drop-shadow(0 8px 24px rgba(35, 10, 5, 0.35));
 }
 
 /* Layer 5: Natural Golden Vignette & Bottom Section Blend */
@@ -978,6 +993,8 @@ html[lang="kn"] .nav-link {
 
 /* Reduced Motion Preference */
 @media (prefers-reduced-motion: reduce) {
+  .hero-mandala-spinner,
+  .hero-triforce-spinner,
   .hero-chakra-spinner {
     animation: none !important;
   }
@@ -985,13 +1002,14 @@ html[lang="kn"] .nav-link {
     animation: none !important;
   }
   .hero-art-bg,
-  .hero-chakra-layer,
-  .hero-art-subject,
-  .hero-art-yantra {
+  .hero-mandala-layer,
+  .hero-triforce-layer,
+  .hero-art-subject {
     transform: none !important;
     transition: none !important;
   }
-  .hero-chakra-layer {
+  .hero-mandala-layer,
+  .hero-triforce-layer {
     transform: translate(-50%, -50%) !important;
   }
 }

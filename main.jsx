@@ -230,8 +230,7 @@ function App() {
   };
 
   const handleApplyClick = (programTitle) => {
-    if (programTitle) setSelectedProgramForApply(programTitle);
-    setApplyModalOpen(true);
+    window.open("https://forms.gle/mWKrf4AaReJDEM7v8", "_blank", "noopener,noreferrer");
   };
 
   const handleFormSubmit = (e) => {
@@ -321,15 +320,11 @@ Message: ${formData.message || 'I would like to apply for MPA Admissions 2026-27
         <div className="container header-inner">
           <button className="brand-link" onClick={() => scrollTo("home")} aria-label="BMSSA Home">
             <img
-              src={lang === "kn" ? "/images/logo kannada.jpeg" : "/images/logo-eng.png"}
+              src="/images/logo-eng.png"
               alt={t.academy.fullName}
               className="brand-logo-img"
               width="58"
               height="58"
-              onError={(e) => {
-                e.currentTarget.onerror = null;
-                e.currentTarget.src = "/images/logo-eng.png";
-              }}
             />
             <div className="brand-text">
               <div className="brand-title">{t.academy.name}</div>
@@ -413,31 +408,34 @@ Message: ${formData.message || 'I would like to apply for MPA Admissions 2026-27
             <div className="hero-art-canvas">
               {/* Layer 1: Background Scenery (Sunrise, river, hills, temple, courtyard) */}
               <img
-                src="/images/matanga-hero-bg.jpg"
+                src="/images/Golden River Valley Through Temple Pillars.png"
                 alt="Sacred landscape at sunrise"
                 className="hero-art-layer hero-art-bg"
               />
 
-              {/* Layer 2: Rotating Sacred Mandala Chakra Wheel (Rotates BEHIND Sage) */}
-              <div className="hero-chakra-layer" aria-hidden="true">
-                <div className="hero-chakra-spinner">
+              {/* Layer 2A: Rotating Sacred Mandala (Down in its original backdrop location) */}
+              <div className="hero-mandala-layer" aria-hidden="true">
+                <div className="hero-mandala-spinner">
                   <img
-                    src="/images/matanga-chakra-wheel.png"
-                    alt="Sacred rotating mandala chakra"
-                    className="hero-chakra-disc-img"
+                    src="/images/Radiant Golden Sacred Mandala.png"
+                    alt="Radiant Golden Sacred Mandala"
+                    className="hero-mandala-disc-img"
                   />
                 </div>
                 {/* Subtle golden ambient aura pulse */}
                 <div className="hero-chakra-glow"></div>
               </div>
 
-              {/* Layer 3: Sacred Upward Yantra (Stationary Above Sage's Head) */}
-              <img
-                src="/images/matanga-sacred-yantra.png"
-                alt="Sacred Yantra"
-                className="hero-art-layer hero-art-yantra"
-                aria-hidden="true"
-              />
+              {/* Layer 2B: Rotating Golden Triforce Emblem (Directly Behind Sage Matanga's Head) */}
+              <div className="hero-triforce-layer" aria-hidden="true">
+                <div className="hero-triforce-spinner">
+                  <img
+                    src="/images/Golden Triforce Glow Emblem-transparent.png"
+                    alt="Golden Triforce Glow Emblem"
+                    className="hero-triforce-disc-img"
+                  />
+                </div>
+              </div>
 
               {/* Layer 4: Stationary Foreground Subject (Sage Matanga with Veena) */}
               <img
