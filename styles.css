@@ -686,31 +686,26 @@ html[lang="kn"] .nav-link {
   filter: drop-shadow(0 0 24px rgba(255, 195, 80, 0.45));
 }
 
-/* Layer 2B: Rotating Golden Triforce Emblem (Directly Behind Sage Matanga's Head) */
+/* Layer 2B: Stationary Golden Triforce Emblem (Directly Behind Sage Matanga's Head - STATIC) */
 .hero-triforce-layer {
   position: absolute;
   top: 34%;
   left: 50%;
   width: 17.5%;
   aspect-ratio: 1 / 1;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) !important;
   z-index: 3;
   pointer-events: none;
   user-select: none;
-}
-
-.hero-triforce-spinner {
-  width: 100%;
-  height: 100%;
-  animation: heroChakraSpin 65s linear infinite;
-  transform-origin: center center;
-  will-change: transform;
+  animation: none !important;
 }
 
 .hero-triforce-disc-img {
   width: 100%;
   height: 100%;
   display: block;
+  animation: none !important;
+  transform: none !important;
   filter: drop-shadow(0 0 16px rgba(255, 215, 100, 0.7));
 }
 

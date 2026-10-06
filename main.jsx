@@ -108,22 +108,22 @@ function PostageStamp({ id, name, department, stampCategory, image }) {
    AUTHENTIC GALLERY ASSETS (17 Verified User Photographs)
    ========================================================================== */
 const GALLERY_BASE = [
+  // 5 New Student Cohort & Heritage Tour Photos
+  { id: 201, category: "heritage", image: "/images/academy-temple-heritage-tour.webp", fallbackImage: "/images/academy-temple-heritage-tour.jpg" },
+  { id: 202, category: "dance", image: "/images/academy-traditional-attire-group.webp", fallbackImage: "/images/academy-traditional-attire-group.jpg" },
+  { id: 203, category: "music", image: "/images/academy-stage-felicitation.webp", fallbackImage: "/images/academy-stage-felicitation.jpg" },
+  { id: 204, category: "dance", image: "/images/academy-dance-group.webp", fallbackImage: "/images/academy-dance-group.jpg" },
+  { id: 205, category: "heritage", image: "/images/academy-cohort-indoor.webp", fallbackImage: "/images/academy-cohort-indoor.jpg" },
+
+  // Performance & Academy Ensemble Assets
   { id: 1, category: "dance", image: "/images/master_of_performing_arts.jpg" },
   { id: 2, category: "dance", image: "/images/solo-1.jpg", fallbackImage: "/images/solo 1.jpeg" },
   { id: 3, category: "music", image: "/images/group_singing.jpg" },
   { id: 17, category: "music", image: "/images/group-singing-2.jpg", fallbackImage: "/images/group singing 2.jpg" },
-  { id: 4, category: "heritage", image: "/images/dr-satyanarayana-2.jpg", fallbackImage: "/images/Dr satyanarayana 2.JPG" },
-  { id: 5, category: "dance", image: "/images/photo-3.jpg", fallbackImage: "/images/photo 3.jpg" },
   { id: 6, category: "dance", image: "/images/solo-2.jpg", fallbackImage: "/images/solo 2.jpeg" },
-  { id: 8, category: "dance", image: "/images/ranjana-nagaraj.jpg", fallbackImage: "/images/Ranjana.jpeg" },
   { id: 9, category: "dance", image: "/images/photo-1.jpg", fallbackImage: "/images/photo 1.jpeg" },
-  { id: 10, category: "music", image: "/images/dr-nandakumar.jpg", fallbackImage: "/images/Dr. NandaKumar.JPG" },
-  { id: 11, category: "heritage", image: "/images/dr-satyanarayana-3.jpg", fallbackImage: "/images/Dr. satyanarayana 3.png" },
   { id: 12, category: "heritage", image: "/images/photo-2.jpg", fallbackImage: "/images/photo 2.jpeg" },
-  { id: 13, category: "music", image: "/images/dr-ambika-shastry.jpg", fallbackImage: "/images/Dr.Ambika Shashtry.jpeg" },
-  { id: 14, category: "music", image: "/images/dr-nagendra-shastry.jpg", fallbackImage: "/images/Dr.Nagendra Shastri.jpeg" },
-  { id: 15, category: "heritage", image: "/images/dr-satyanarayana-pic.jpg", fallbackImage: "/images/Dr Satyanarayana pic.jpeg" },
-  { id: 16, category: "heritage", image: "/images/anil-kumar-katti.jpg", fallbackImage: "/images/Anil kumar.jpeg" },
+
   // Newly Added Photos (Photo 4 to Photo 29)
   { id: 104, category: "dance", image: "/images/photo 4.jpg", fallbackImage: "/images/photo 4.svg" },
   { id: 105, category: "dance", image: "/images/photo 5.jpeg" },
@@ -137,17 +137,6 @@ const GALLERY_BASE = [
   { id: 113, category: "dance", image: "/images/photo 13.jpg" },
   { id: 114, category: "dance", image: "/images/photo 14.jpg" },
   { id: 115, category: "dance", image: "/images/photo 15.jpg" },
-  { id: 116, category: "music", image: "/images/photo 16.jpg" },
-  { id: 117, category: "music", image: "/images/photo 17.jpg" },
-  { id: 118, category: "music", image: "/images/photo 18.jpg" },
-  { id: 119, category: "music", image: "/images/photo 19.jpg" },
-  { id: 120, category: "music", image: "/images/photo 20.jpg" },
-  { id: 121, category: "music", image: "/images/photo 21.jpg" },
-  { id: 122, category: "music", image: "/images/photo 22.jpg" },
-  { id: 123, category: "music", image: "/images/photo 23.jpg" },
-  { id: 124, category: "music", image: "/images/photo 24.jpg" },
-  { id: 125, category: "music", image: "/images/photo 25.jpg" },
-  { id: 126, category: "music", image: "/images/photo 26.jpg" },
   { id: 127, category: "heritage", image: "/images/photo 27.jpg" },
   { id: 128, category: "heritage", image: "/images/photo 28.jpg" },
   { id: 129, category: "heritage", image: "/images/photo 29.jpg" }
@@ -408,7 +397,7 @@ Message: ${formData.message || 'I would like to apply for MPA Admissions 2026-27
             <div className="hero-art-canvas">
               {/* Layer 1: Background Scenery (Sunrise, river, hills, temple, courtyard) */}
               <img
-                src="/images/Golden River Valley Through Temple Pillars.png"
+                src="/images/golden-river-valley-bg.webp"
                 alt="Sacred landscape at sunrise"
                 className="hero-art-layer hero-art-bg"
               />
@@ -417,7 +406,7 @@ Message: ${formData.message || 'I would like to apply for MPA Admissions 2026-27
               <div className="hero-mandala-layer" aria-hidden="true">
                 <div className="hero-mandala-spinner">
                   <img
-                    src="/images/Radiant Golden Sacred Mandala.png"
+                    src="/images/radiant-golden-mandala.webp"
                     alt="Radiant Golden Sacred Mandala"
                     className="hero-mandala-disc-img"
                   />
@@ -426,20 +415,18 @@ Message: ${formData.message || 'I would like to apply for MPA Admissions 2026-27
                 <div className="hero-chakra-glow"></div>
               </div>
 
-              {/* Layer 2B: Rotating Golden Triforce Emblem (Directly Behind Sage Matanga's Head) */}
+              {/* Layer 2B: Stationary Golden Triforce Emblem (Directly Behind Sage Matanga's Head - Static) */}
               <div className="hero-triforce-layer" aria-hidden="true">
-                <div className="hero-triforce-spinner">
-                  <img
-                    src="/images/Golden Triforce Glow Emblem-transparent.png"
-                    alt="Golden Triforce Glow Emblem"
-                    className="hero-triforce-disc-img"
-                  />
-                </div>
+                <img
+                  src="/images/Golden Triforce Glow Emblem-transparent.webp"
+                  alt="Golden Triforce Glow Emblem"
+                  className="hero-triforce-disc-img"
+                />
               </div>
 
               {/* Layer 4: Stationary Foreground Subject (Sage Matanga with Veena) */}
               <img
-                src="/images/matanga-hero-subject.png"
+                src="/images/matanga-hero-subject.webp"
                 alt="Sage Matanga seated with Veena"
                 className="hero-art-layer hero-art-subject"
               />

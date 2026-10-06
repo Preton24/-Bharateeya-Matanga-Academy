@@ -318,7 +318,8 @@ export const TRANSLATIONS = {
             designation: "Renowned Guru and Performer (Bharatanatya)",
             department: "Bharatanatya",
             stampCategory: "NATYA",
-            image: "/images/photo-1.jpg",
+            image: "/images/latha-laxmish.webp",
+            fallbackImage: "/images/latha-laxmish.jpg",
             phone: null,
             shortBio: "Renowned Guru and Performer (Bharatanatya). Distinguished exponent and teacher who has trained generations of classical dancers.",
             fullBio: "Guru Latha Laxmish is an eminent Bharatanatya guru and performer with a rich artistic lineage. Renowned for her rigorous adavu training, expressive abhinaya, and mastery of traditional margam repertoire, she serves as a revered guru guiding students towards stage mastery and classical excellence.",
@@ -335,7 +336,8 @@ export const TRANSLATIONS = {
             designation: "Renowned Guru and Performer (Bharatanatya)",
             department: "Bharatanatya",
             stampCategory: "NATYA",
-            image: "/images/photo-2.jpg",
+            image: "/images/thanuja-jain.webp",
+            fallbackImage: "/images/thanuja-jain.jpg",
             phone: null,
             shortBio: "Renowned Guru and Performer (Bharatanatya). Acclaimed soloist, choreographer, and guru devoted to traditional Bharatanatya preservation.",
             fullBio: "Guru Thanuja Jain is an acclaimed Bharatanatya performer, choreographer, and esteemed guru. Known for her graceful stage presence, dynamic nritta, and insightful choreography, she mentors students in the spiritual, theatrical, and technical dimensions of Bharatanatya.",
@@ -604,6 +606,31 @@ export const TRANSLATIONS = {
       showLess: "Show Less",
       items: [
         {
+          id: 201,
+          title: "Shastric Field Study & Temple Heritage Tour at Hampi",
+          tag: "Heritage Tour"
+        },
+        {
+          id: 202,
+          title: "Traditional Attire Cultural Assembly & Academy Scholars",
+          tag: "Academy Cohort"
+        },
+        {
+          id: 203,
+          title: "Classical Music & Natya Convocation Felicitation",
+          tag: "Stage Felicitation"
+        },
+        {
+          id: 204,
+          title: "Bharatanatya Practitioners & Master Class Session",
+          tag: "Master Class"
+        },
+        {
+          id: 205,
+          title: "Interactive Shastric Theory Workshop & Cohort Assembly",
+          tag: "Workshop Assembly"
+        },
+        {
           id: 1,
           title: "Master of Performing Arts — Bharatanatyam Stage Production",
           tag: "Bharatanatya Production"
@@ -624,24 +651,9 @@ export const TRANSLATIONS = {
           tag: "Karnataka Sangita"
         },
         {
-          id: 4,
-          title: "Mahamahopadhyaya Dr. R. Sathyanarayana — Shastric Treatises & Musicology",
-          tag: "Scholarly Legacy"
-        },
-        {
-          id: 5,
-          title: "Dr. R. S. Nandakumar with Guru Ranjana & Bharatanatyam Ensemble",
-          tag: "Stage Ensemble"
-        },
-        {
           id: 6,
           title: "Bharatanatyam Recital — Sculpturesque Karana Posture",
           tag: "Bharatanatya Solo"
-        },
-        {
-          id: 8,
-          title: "Guru Vidushi Ranjana Nagaraj — Classical Natyashastra Abhinaya & Nritta",
-          tag: "Faculty & Artists"
         },
         {
           id: 9,
@@ -649,39 +661,9 @@ export const TRANSLATIONS = {
           tag: "Rehearsal Studio"
         },
         {
-          id: 10,
-          title: "Vidwan Dr. R. S. Nandakumar — Karnataka Music Concert Presentation",
-          tag: "Karnataka Sangita"
-        },
-        {
-          id: 11,
-          title: "Mahamahopadhyaya Dr. R. Sathyanarayana — Revered Paramaguru",
-          tag: "Paramaguru"
-        },
-        {
           id: 12,
           title: "Academy Cultural Assembly & Gurukula Gathering",
           tag: "Cultural Gathering"
-        },
-        {
-          id: 13,
-          title: "Dr. Ambika Shastry — Vocal Recital with Sacred Tanpura",
-          tag: "Karnataka Sangita"
-        },
-        {
-          id: 14,
-          title: "Vidwan Dr. Srikantham Nagendra Shastry — Vocal Concert & Lineage",
-          tag: "Karnataka Sangita"
-        },
-        {
-          id: 15,
-          title: "Dr. R. Sathyanarayana — Archival Historical Portrait",
-          tag: "Archival History"
-        },
-        {
-          id: 16,
-          title: "Sri Anil Kumar Katti — Founder Trustee & Chairman",
-          tag: "Academy Leadership"
         },
         {
           id: 104,
@@ -742,61 +724,6 @@ export const TRANSLATIONS = {
           id: 115,
           title: "Thematic Classical Drama & Choreographic Composition",
           tag: "Natya Drama"
-        },
-        {
-          id: 116,
-          title: "Karnataka Sangita Vocal Training & Abhyasa Session",
-          tag: "Vocal Training"
-        },
-        {
-          id: 117,
-          title: "Classical Swara Sadhana & Sruti Alignment Workshop",
-          tag: "Sangita Workshop"
-        },
-        {
-          id: 118,
-          title: "Rhythmic Accompaniment & Tala Shastra Class",
-          tag: "Tala & Laya"
-        },
-        {
-          id: 119,
-          title: "Classical Instrumental Guidance & Musical Pedagogy",
-          tag: "Instrumental & Vocal"
-        },
-        {
-          id: 120,
-          title: "Karnataka Sangita Masterclass with Revered Scholars",
-          tag: "Masterclass"
-        },
-        {
-          id: 121,
-          title: "Manodharma Sangita & Raga Alapana Practical Abhyasa",
-          tag: "Manodharma Sangita"
-        },
-        {
-          id: 122,
-          title: "Traditional Musicology & Shastric Lecture Session",
-          tag: "Musicology Lecture"
-        },
-        {
-          id: 123,
-          title: "Vaggeyakara Compositions Study & Notation Analysis",
-          tag: "Syllabus & Research"
-        },
-        {
-          id: 124,
-          title: "Percussion & Laya Training for Classical Students",
-          tag: "Laya Training"
-        },
-        {
-          id: 125,
-          title: "Post-Graduate Vocal Immersion & Concert Rehearsal",
-          tag: "MPA Music Rehearsal"
-        },
-        {
-          id: 126,
-          title: "Classroom Demonstration & Practical Guidance",
-          tag: "Classroom Training"
         },
         {
           id: 127,
@@ -1311,7 +1238,8 @@ export const TRANSLATIONS = {
             designation: "ಖ್ಯಾತ ಗುರುಗಳು ಮತ್ತು ರಂಗ ಪ್ರಸ್ತುತಿಕಾರರು (ಭರತನಾಟ್ಯ)",
             department: "ಭರತನಾಟ್ಯ",
             stampCategory: "ನಾಟ್ಯ",
-            image: "/images/photo-1.jpg",
+            image: "/images/latha-laxmish.webp",
+            fallbackImage: "/images/latha-laxmish.jpg",
             phone: null,
             shortBio: "ಖ್ಯಾತ ಗುರುಗಳು ಮತ್ತು ರಂಗ ಪ್ರಸ್ತುತಿಕಾರರು (ಭರತನಾಟ್ಯ). ಸಂಪ್ರದಾಯಬದ್ಧ ಮಾರ್ಗಂ ಮತ್ತು ಅಭಿನಯ ತರಬೇತಿಯಲ್ಲಿ ಅಪಾರ ಅನುಭವವುಳ್ಳ ಹಿರಿಯ ಗುರುಗಳು.",
             fullBio: "ಗುರು ಲತಾ ಲಕ್ಷ್ಮೀಶ್ ಅವರು ಭರತನಾಟ್ಯ ಕ್ಷೇತ್ರದಲ್ಲಿ ದಶಕಗಳ ಕಾಲ ಸೇವೆ ಸಲ್ಲಿಸಿರುವ ಹಿರಿಯ ಗುರುಗಳು ಮತ್ತು ಪ್ರಸಿದ್ಧ ರಂಗ ಕಲಾವಿದೆ. ಸಾಂಪ್ರದಾಯಿಕ ಅಡವುಗಳ ಸ್ಪಷ್ಟತೆ, ನವರಸ ಅಭಿನಯ ಹಾಗೂ ಪಾರಂಪರಿಕ ಮಾರ್ಗಂ ಪ್ರಸ್ತುತಿಯಲ್ಲಿ ನುರಿತ ಇವರು, ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ ಕಲೆಯ ಶಿಸ್ತು ಮತ್ತು ರಂಗ ಪ್ರೌಢಿಮೆಯನ್ನು ಧಾರೆ ಎರೆಯುತ್ತಾರೆ.",
@@ -1328,7 +1256,8 @@ export const TRANSLATIONS = {
             designation: "ಖ್ಯಾತ ಗುರುಗಳು ಮತ್ತು ರಂಗ ಪ್ರಸ್ತುತಿಕಾರರು (ಭರತನಾಟ್ಯ)",
             department: "ಭರತನಾಟ್ಯ",
             stampCategory: "ನಾಟ್ಯ",
-            image: "/images/photo-2.jpg",
+            image: "/images/thanuja-jain.webp",
+            fallbackImage: "/images/thanuja-jain.jpg",
             phone: null,
             shortBio: "ಖ್ಯಾತ ಗುರುಗಳು ಮತ್ತು ರಂಗ ಪ್ರಸ್ತುತಿಕಾರರು (ಭರತನಾಟ್ಯ). ನೃತ್ಯ ಸಂಯೋಜನೆ ಮತ್ತು ರಂಗ ಪ್ರಸ್ತುತಿಯಲ್ಲಿ ಹೆಸರಾಂತ ಶಾಸ್ತ್ರೀಯ ನೃತ್ಯ ಗುರುಗಳು.",
             fullBio: "ಗುರು ತನುಜಾ ಜೈನ್ ಅವರು ಭರತನಾಟ್ಯದ ಖ್ಯಾತ ನೃತ್ಯ ಸಂಯೋಜಕಿ, ಗುರುಗಳು ಮತ್ತು ಏಕವ್ಯಕ್ತಿ ರಂಗ ಕಲಾವಿದೆ. ನಾಟ್ಯಶಾಸ್ತ್ರದ ಸೌಂದರ್ಯಮೀಮಾಂಸೆ, ಭಾವಪೂರ್ಣ ಅಭಿನಯ ಮತ್ತು ಗತಿ-ಲಯಗಳ ಸಮ್ಮಿಲನದಲ್ಲಿ ನಿಪುಣರಾದ ಇವರು, ಯುವ ಕಲಾವಿದರನ್ನು ವೃತ್ತಿಪರ ರಂಗ ಪ್ರಸ್ತುತಿಗೆ ಸಜ್ಜುಗೊಳಿಸುವಲ್ಲಿ ಅಪಾರ ಕೊಡುಗೆ ನೀಡಿದ್ದಾರೆ.",
@@ -1597,6 +1526,31 @@ export const TRANSLATIONS = {
       showLess: "ಕಡಿಮೆ ತೋರಿಸಿ",
       items: [
         {
+          id: 201,
+          title: "ಹಂಪಿಯಲ್ಲಿ ಶಾಸ್ತ್ರೀಯ ಕ್ಷೇತ್ರ ಅಧ್ಯಯನ ಮತ್ತು ದೇವಾಲಯ ಪರಂಪರೆ ಪ್ರವಾಸ",
+          tag: "ಪರಂಪರೆ ಪ್ರವಾಸ"
+        },
+        {
+          id: 202,
+          title: "ಸಾಂಪ್ರದಾಯಿಕ ಉಡುಗೆಯ ಸಾಂಸ್ಕೃತಿಕ ಸಮ್ಮಿಲನ ಮತ್ತು ವಿದ್ವಾಂಸರು",
+          tag: "ಅಕಾಡೆಮಿ ಸಮ್ಮಿಲನ"
+        },
+        {
+          id: 203,
+          title: "ಶಾಸ್ತ್ರೀಯ ಸಂಗೀತ ಮತ್ತು ನಾಟ್ಯ ಸನ್ಮಾನ ಸಮಾರಂಭ",
+          tag: "ರಂಗ ಸನ್ಮಾನ"
+        },
+        {
+          id: 204,
+          title: "ಭರತನಾಟ್ಯ ಅಭ್ಯಾಸಿಗಳು ಮತ್ತು ಮಾಸ್ಟರ್ ಕ್ಲಾಸ್ ಸೆಷನ್",
+          tag: "ಮಾಸ್ಟರ್ ಕ್ಲಾಸ್"
+        },
+        {
+          id: 205,
+          title: "ಸಂವಾದಾತ್ಮಕ ಶಾಸ್ತ್ರೀಯ ಸಿದ್ಧಾಂತ ಕಾರ್ಯಾಗಾರ ಮತ್ತು ಸಭೆ",
+          tag: "ಕಾರ್ಯಾಗಾರ ಸಭೆ"
+        },
+        {
           id: 1,
           title: "ಪ್ರದರ್ಶನ ಕಲೆಗಳ ಸ್ನಾತಕೋತ್ತರ — ಭರತನಾಟ್ಯ ರಂಗ ಪ್ರದರ್ಶನ",
           tag: "ಭರತನಾಟ್ಯ ಪ್ರದರ್ಶನ"
@@ -1617,24 +1571,9 @@ export const TRANSLATIONS = {
           tag: "ಕರ್ನಾಟಕ ಸಂಗೀತ"
         },
         {
-          id: 4,
-          title: "ಮಹಾ ಮಹೋಪಾಧ್ಯಾಯ ಡಾ. ಆರ್. ಸತ್ಯನಾರಾಯಣ — ಶಾಸ್ತ್ರಗ್ರಂಥಗಳು ಮತ್ತು ಸಂಗೀತಶಾಸ್ತ್ರ",
-          tag: "ವಿದ್ವತ್ ಪರಂಪರೆ"
-        },
-        {
-          id: 5,
-          title: "ಡಾ. ಆರ್. ಎಸ್. ನಂದಕುಮಾರ್, ಗುರು ರಂಜನಾ ಮತ್ತು ಭರತನಾಟ್ಯ ವೃಂದ",
-          tag: "ರಂಗ ತಂಡ"
-        },
-        {
           id: 6,
           title: "ಭರತನಾಟ್ಯ ಪ್ರಸ್ತುತಿ — ಶಿಲ್ಪಸದೃಶ ಕರಣ ಭಂಗಿ",
           tag: "ಭರತನಾಟ್ಯ ಏಕವ್ಯಕ್ತಿ"
-        },
-        {
-          id: 8,
-          title: "ಗುರು ವಿದುಷಿ ರಂಜನಾ ನಾಗರಾಜ್ — ಶಾಸ್ತ್ರೀಯ ನಾಟ್ಯಶಾಸ್ತ್ರ ಅಭಿನಯ ಮತ್ತು ನೃತ್ತ",
-          tag: "ಬೋಧಕರು ಮತ್ತು ಕಲಾವಿದರು"
         },
         {
           id: 9,
@@ -1642,39 +1581,9 @@ export const TRANSLATIONS = {
           tag: "ಅಭ್ಯಾಸ ಶಾಲೆ"
         },
         {
-          id: 10,
-          title: "ವಿದ್ವಾನ್ ಡಾ. ಆರ್. ಎಸ್. ನಂದಕುಮಾರ್ — ಕರ್ನಾಟಕ ಸಂಗೀತ ಕಚೇರಿ ಪ್ರಸ್ತುತಿ",
-          tag: "ಕರ್ನಾಟಕ ಸಂಗೀತ"
-        },
-        {
-          id: 11,
-          title: "ಮಹಾ ಮಹೋಪಾಧ್ಯಾಯ ಡಾ. ಆರ್. ಸತ್ಯನಾರಾಯಣ — ಪೂಜ್ಯ ಪರಮಗುರುಗಳು",
-          tag: "ಪರಮಗುರುಗಳು"
-        },
-        {
           id: 12,
           title: "ಅಕಾಡೆಮಿ ಸಾಂಸ್ಕೃತಿಕ ಸಮ್ಮಿಲನ ಮತ್ತು ಗುರುಕುಲ ಸಭೆ",
           tag: "ಸಾಂಸ್ಕೃತಿಕ ಸಭೆ"
-        },
-        {
-          id: 13,
-          title: "ಡಾ. ಅಂಬಿಕಾ ಶಾಸ್ತ್ರಿ — ಪವಿತ್ರ ತಂಬೂರಿಯೊಂದಿಗೆ ಶಾಸ್ತ್ರೀಯ ಗಾಯನ",
-          tag: "ಕರ್ನಾಟಕ ಸಂಗೀತ"
-        },
-        {
-          id: 14,
-          title: "ವಿದ್ವಾನ್ ಡಾ. ಶ್ರೀಕಂಠಂ ನಾಗೇಂದ್ರ ಶಾಸ್ತ್ರಿ — ಗಾಯನ ಕಚೇರಿ ಮತ್ತು ಗುರು ಪರಂಪರೆ",
-          tag: "ಕರ್ನಾಟಕ ಸಂಗೀತ"
-        },
-        {
-          id: 15,
-          title: "ಡಾ. ಆರ್. ಸತ್ಯನಾರಾಯಣ — ಐತಿಹಾಸಿಕ ಭಾವಚಿತ್ರ",
-          tag: "ಐತಿಹಾಸಿಕ ದಾಖಲೆ"
-        },
-        {
-          id: 16,
-          title: "ಶ್ರೀ ಅನಿಲ್ ಕುಮಾರ್ ಕತ್ತಿ — ಸಂಸ್ಥಾಪಕ ಟ್ರಸ್ಟಿ ಮತ್ತು ಅಧ್ಯಕ್ಷರು",
-          tag: "ಅಕಾಡೆಮಿ ನಾಯಕತ್ವ"
         },
         {
           id: 104,
@@ -1735,61 +1644,6 @@ export const TRANSLATIONS = {
           id: 115,
           title: "ವಿಷಯಾಧಾರಿತ ಶಾಸ್ತ್ರೀಯ ನೃತ್ಯ ರೂಪಕ ಪ್ರಸ್ತುತಿ",
           tag: "ನಾಟ್ಯ ರೂಪಕ"
-        },
-        {
-          id: 116,
-          title: "ಕರ್ನಾಟಕ ಸಂಗೀತ ಗಾಯನ ತರಬೇತಿ ಮತ್ತು ಅಭ್ಯಾಸ ಗಾನ",
-          tag: "ಗಾಯನ ತರಬೇತಿ"
-        },
-        {
-          id: 117,
-          title: "ಶಾಸ್ತ್ರೀಯ ಸ್ವರ ಸಾಧನೆ ಮತ್ತು ಶ್ರುತಿ ಹೊಂದಾಣಿಕೆ ಕಾರ್ಯಾಗಾರ",
-          tag: "ಸಂಗೀತ ಕಾರ್ಯಾಗಾರ"
-        },
-        {
-          id: 118,
-          title: "ಲಯ ಸಾಂಗತ್ಯ ಮತ್ತು ತಾಳಶಾಸ್ತ್ರ ತರಗತಿ",
-          tag: "ತಾಳ ಮತ್ತು ಲಯ"
-        },
-        {
-          id: 119,
-          title: "ಶಾಸ್ತ್ರೀಯ ವಾದ್ಯ ಮಾರ್ಗದರ್ಶನ ಮತ್ತು ಸಂಗೀತ ಬೋಧನೆ",
-          tag: "ವಾದ್ಯ ಮತ್ತು ಗಾಯನ"
-        },
-        {
-          id: 120,
-          title: "ಹಿರಿಯ ವಿದ್ವಾಂಸರಿಂದ ಕರ್ನಾಟಕ ಸಂಗೀತ ಮಾಸ್ಟರ್‌ಕ್ಲಾಸ್",
-          tag: "ಮಾಸ್ಟರ್‌ಕ್ಲಾಸ್"
-        },
-        {
-          id: 121,
-          title: "ಮನೋಧರ್ಮ ಸಂಗೀತ ಮತ್ತು ರಾಗಾಲಾಪನೆಯ ಪ್ರಾಯೋಗಿಕ ತರಬೇತಿ",
-          tag: "ಮನೋಧರ್ಮ ಸಂಗೀತ"
-        },
-        {
-          id: 122,
-          title: "ಸಾಂಪ್ರದಾಯಿಕ ಸಂಗೀತಶಾಸ್ತ್ರ ಉಪನ್ಯಾಸ ಮತ್ತು ಗ್ರಂಥಾವಲೋಕನ",
-          tag: "ಸಂಗೀತಶಾಸ್ತ್ರ"
-        },
-        {
-          id: 123,
-          title: "ವಾಗ್ಗೇಯಕಾರರ ಕೃತಿಗಳ ಅಧ್ಯಯನ ಮತ್ತು ಸ್ವರಲಿಪಿ ವಿಶ್ಲೇಷಣೆ",
-          tag: "ಪಠ್ಯಕ್ರಮ & ಸಂಶೋಧನೆ"
-        },
-        {
-          id: 124,
-          title: "ಲಯ ವಾದ್ಯ ತರಬೇತಿ ಮತ್ತು ತಾಳ ಪ್ರಾತ್ಯಕ್ಷಿಕೆ",
-          tag: "ಲಯ ತರಬೇತಿ"
-        },
-        {
-          id: 125,
-          title: "ಸ್ನಾತಕೋತ್ತರ ಗಾಯನ ವಿದ್ಯಾರ್ಥಿಗಳ ಕಚೇರಿ ಪೂರ್ವತಯಾರಿ",
-          tag: "ಎಂ.ಪಿ.ಎ ಸಂಗೀತ ತಾಲೀಮು"
-        },
-        {
-          id: 126,
-          title: "ತರಗತಿ ಪ್ರಾತ್ಯಕ್ಷಿಕೆ ಮತ್ತು ಪ್ರಾಯೋಗಿಕ ಮಾರ್ಗದರ್ಶನ",
-          tag: "ತರಗತಿ ತರಬೇತಿ"
         },
         {
           id: 127,
